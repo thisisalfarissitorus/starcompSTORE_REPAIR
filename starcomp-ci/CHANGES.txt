@@ -1,10 +1,14 @@
 index.php --> index.php
-chart.php --> keranjang.php
+chart.php --> keranjang.php --> pembayaran.php
 form.php --> produk.php
 tab-panel.php --> users.php
 table.php   --> pemesanan.php
-ui.php  --> pembelian.php
+ui.php  --> pembelian.php --> kerusakan.php
+
 
 login.php --> login.php
 ganti-kategori.php  --> ganti-kategori.php
 ganti-produk.php    --> ganti-produk.php
+
+tambah-produk.php
+tambah-user.php

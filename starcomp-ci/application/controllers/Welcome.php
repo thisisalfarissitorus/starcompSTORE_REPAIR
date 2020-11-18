@@ -10,25 +10,31 @@ class Welcome extends CI_Controller {
 
 	public function index()
 	{
-		$this->load->view('index');
+		$this->load->view('main/index');
 	}
-	public function keranjang(){
-		$this->load->view('keranjang');
+	public function pembayaran(){
+		$this->load->view('main/pembayaran');
 	}
 	public function produk(){
-		$this->load->view('produk');
+		$this->load->view('main/produk');
 	}
 	public function users(){
-		$this->load->view('users');
+		$this->load->view('main/users');
 	}
 	public function pemesanan(){
-		$this->load->view('pemesanan');
+		$this->load->view('main/pemesanan');
 	}
-	public function pembelian(){
-		$this->load->view('pembelian');
+	public function kerusakan(){
+		$this->load->view('main/kerusakan');
 	}
 	public function blank(){
-		$this->load->view('blank');
+		$this->load->view('errors/blank');
+	}
+	public function perbaikan(){
+		$this->load->view('main/perbaikan');
+	}
+	public function ganti_produk(){
+		$this->load->view('ganti/ganti_produk');
 	}
 
 }
