@@ -5,11 +5,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <meta charset="utf-8" />
+      <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>STARCOMP ADMIN</title>
-	<!-- BOOTSTRAP STYLES-->
-    <link href="<?php echo base_url('assets/css/bootstrap.css');?>" rel="stylesheet" />
+    <title>STARCOMP ADMIN : DASHBOARD</title>
+    <!-- BOOTSTRAP STYLES-->
+   <link href="<?php echo base_url('assets/css/bootstrap.css');?>" rel="stylesheet" />
      <!-- FONTAWESOME STYLES-->
     <link href="<?php echo base_url('assets/css/font-awesome.css')?>" rel="stylesheet" />
      <!-- MORRIS CHART STYLES-->
@@ -40,31 +40,31 @@ font-size: 16px;"> Last access : 30 May 2014 &nbsp; <a href="#" class="btn btn-d
                 <nav class="navbar-default navbar-side" role="navigation">
             <div class="sidebar-collapse">
                 <ul class="nav" id="main-menu">
-				<li class="text-center">
+        <li class="text-center">
                     <img src="<?php echo base_url('assets/img/find_user.png')?>" class="user-image img-responsive"/>
-					</li>
-				
-					
+          </li>
+        
+          
                     <li>
-                        <a class="active-menu"  href="<?php echo site_url('Welcome/index')?>"><i class="fa fa-dashboard fa-3x"></i> Dashboard</a>
+                        <a class="active-menu" href="<?php echo site_url('Welcome/index')?>"><i class="fa fa-dashboard fa-3x"></i> Dashboard</a>
                     </li>
-                     <li>
+                   <li>
                         <a  href="<?php echo site_url('Welcome/kerusakan')?>"><i class="fa fa-desktop fa-3x"></i> Kerusakan</a>
                     </li>
                     <li>
                         <a  href="<?php echo site_url('Welcome/users')?>"><i class="fa fa-qrcode fa-3x"></i> Pelanggan </a>
                     </li>
-						   <li  >
+               <li  >
                         <a   href="<?php echo site_url('Welcome/pembayaran')?>"><i class="fa fa-bar-chart-o fa-3x"></i> Pembayaran</a>
-                    </li>	
-                      <li  >
-                        <a  href="<?php echo site_url('Welcome/pemesanan')?>"><i class="fa fa-table fa-3x"></i> Pemesanan</a>
-                    </li>
+                    </li> 
                     <li  >
                         <a  href="<?php echo site_url('Welcome/produk')?>"><i class="fa fa-edit fa-3x"></i> Produk </a>
-                    </li>				
-					
-					                   
+                    </li> 
+                    <li>
+                      <a "href="<?php echo site_url('Welcome/perbaikan')?>">Perbaikan</a>
+                    </li>      
+          
+                             
                     <li>
                         <a href="#"><i class="fa fa-sitemap fa-3x"></i> Multi-Level Dropdown<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
@@ -93,21 +93,36 @@ font-size: 16px;"> Last access : 30 May 2014 &nbsp; <a href="#" class="btn btn-d
                         </ul>
                       </li>  
                   <li  >
-                        <a  href="<?php echo site_url('Welcome/blank')?>"><i class="fa fa-square-o fa-3x"></i> Blank Page</a>
-                    </li>	
+                        <a href="<?php echo site_url('Welcome/blank')?>"><i class="fa fa-square-o fa-3x"></i> Blank Page</a>
+                    </li> 
                 </ul>
                
             </div>
             
         </nav>  
         <!-- /. NAV SIDE  -->
-        <!-- CONTENTS -->
-        <!-- ISI CONTENT MULAI DI SINI -->
-
-
-
-        
-                 <!-- /. ROW  -->           
+        <div id="page-wrapper" >
+            <div id="page-inner">
+                <div class="row">
+                    <div class="col-md-12">
+                     <h2>SELAMAT DATANG, ADMIN</h2>   
+                        <h5>Ini adalah halaman admin untuk mengelola semua data transaksi, produk, hingga mengubah dan menghapus data tersebut.</h5>
+                    </div>
+                </div>
+                 <!-- /. ROW  -->
+                 <hr />
+                 <!-- ISI CONTENT DIMULAI DI SINI-->
+               <div class="row">
+                <div class="col-md-12">
+                    <!-- Advanced Tables -->
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <!-- <b>Daftar Komputer Pelanggan yang Sudah Diperbaiki</b> -->
+                        </div>
+                
+                            
+                        </div>
+                    </div>
     </div>
              <!-- /. PAGE INNER  -->
             </div>
@@ -126,6 +141,7 @@ font-size: 16px;"> Last access : 30 May 2014 &nbsp; <a href="#" class="btn btn-d
     <script src="<?php echo base_url('assets/js/morris/morris.js')?>"></script>
       <!-- CUSTOM SCRIPTS -->
     <script src="<?php echo base_url('assets/js/custom.js')?>"></script>
+    
     
    
 </body>
