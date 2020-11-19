@@ -8,6 +8,10 @@ class Welcome extends CI_Controller {
 		parent::__construct();
 	}
 
+	public function login(){
+		$this->load->view('main/login');
+	}
+
 	public function index()
 	{
 		$this->load->view('main/index');
@@ -35,6 +39,12 @@ class Welcome extends CI_Controller {
 	}
 	public function ganti_produk(){
 		$this->load->view('ganti/ganti_produk');
+	}
+	public function detail_produk(){
+		$this->load->view('main/viewonly/detail_produk');
+	}
+	public function detail_users(){
+		$this->load->view('main/viewonly/detail_users');
 	}
 
 }

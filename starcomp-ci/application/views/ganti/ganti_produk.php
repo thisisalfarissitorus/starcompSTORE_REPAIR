@@ -7,7 +7,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <head>
       <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>STARCOMP ADMIN : KERUSAKAN</title>
+    <title>STARCOMP ADMIN : GANTI PRODUK</title>
     <!-- BOOTSTRAP STYLES-->
     <link href="<?php echo base_url('assets/css/bootstrap.css');?>" rel="stylesheet" />
      <!-- FONTAWESOME STYLES-->
@@ -34,7 +34,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   <div style="color: white;
 padding: 15px 50px 5px 50px;
 float: right;
-font-size: 16px;"> Last access : 30 May 2014 &nbsp; <a href="#" class="btn btn-danger square-btn-adjust">Logout</a> </div>
+font-size: 16px;"> Last access : <?php echo date("F j, Y, g:i a");?> &nbsp; <a href="#" class="btn btn-danger square-btn-adjust">Logout</a> </div>
         </nav>   
            <!-- /. NAV TOP  -->
                 <nav class="navbar-default navbar-side" role="navigation">
@@ -46,27 +46,27 @@ font-size: 16px;"> Last access : 30 May 2014 &nbsp; <a href="#" class="btn btn-d
                 
                     
                     <li>
-                        <a href="<?php echo site_url('Welcome/index')?>"><i class="fa fa-dashboard fa-3x"></i> Dashboard</a>
+                        <a href="<?php echo site_url('Welcome/index')?>"> Dashboard</a>
                     </li>
                     <li>
-                        <a href="<?php echo site_url('Welcome/kerusakan')?>"><i class="fa fa-desktop fa-3x"></i> Kerusakan</a>
+                        <a href="<?php echo site_url('Welcome/kerusakan')?>">Kerusakan</a>
                     </li>
                     <li>
-                        <a  href="<?php echo site_url('Welcome/users')?>"><i class="fa fa-qrcode fa-3x"></i> Pelanggan </a>
+                        <a  href="<?php echo site_url('Welcome/users')?>">Pelanggan </a>
                     </li>
                            <li  >
-                        <a   href="<?php echo site_url('Welcome/pembayaran')?>"><i class="fa fa-bar-chart-o fa-3x"></i> Pembayaran</a>
+                        <a   href="<?php echo site_url('Welcome/pembayaran')?>"> Pembayaran</a>
                     </li>   
                       <li  >
-                        <a  href="<?php echo site_url('Welcome/pemesanan')?>"><i class="fa fa-table fa-3x"></i> Pemesanan</a>
+                        <a  href="<?php echo site_url('Welcome/pemesanan')?>">Pemesanan</a>
                     </li>
                     <li  >
-                        <a  href="<?php echo site_url('Welcome/produk')?>"><i class="fa fa-edit fa-3x"></i> Produk </a>
+                        <a  href="<?php echo site_url('Welcome/produk')?>">Produk </a>
                     </li>                            
                     
                                        
                     <li>
-                        <a href="#"><i class="fa fa-sitemap fa-3x"></i> Edit Data<span class="fa arrow"></span></a>
+                        <a class="active-menu" href="#">Edit Data<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
                                 <a class="active-menu" href="<?echo site_url('Welcome/ganti_produk');?>">Edit Produk</a>
@@ -93,7 +93,7 @@ font-size: 16px;"> Last access : 30 May 2014 &nbsp; <a href="#" class="btn btn-d
                         </ul>
                       </li>  
                   <li  >
-                        <a  href="<?php echo site_url('Welcome/blank')?>"><i class="fa fa-square-o fa-3x"></i> Blank Page</a>
+                        <a  href="<?php echo site_url('Welcome/blank')?>">Blank Page</a>
                     </li>   
                 </ul>
                
@@ -163,7 +163,7 @@ font-size: 16px;"> Last access : 30 May 2014 &nbsp; <a href="#" class="btn btn-d
                         <input type="deskripsi" class="form-control" id="deskripsi" placeholder="Deskripsi">
                     </div>
 
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <button type="submit" class="btn btn-primary">Simpan</button>
                 </form>
 
                 </div>
