@@ -25,9 +25,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-collapse">
                     <span class="sr-only">Toggle navigation</span>
-                    <span class="fa fa-bar"></span>
-                    <span class="fa fa-bar"></span>
-                    <span class="fa fa-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
                 </button>
                <a class="navbar-brand" href="<?php echo site_url('Welcome/index')?>">STARCOMP ADMIN</a> 
             </div>
@@ -62,19 +62,24 @@ font-size: 16px;"> Last access : <?php echo date("F j, Y, g:i a");?> &nbsp; <a h
                     </li>
                     <li  >
                         <a  href="<?php echo site_url('Welcome/produk')?>">Produk </a>
-                    </li>                            
+                    </li>     
+
+                    <li>
+                      <a href="<?php echo site_url('Welcome/perbaikan')?>">Perbaikan</a>
+                    </li>                             
                     
                                        
-                    <li>
-                        <a href="#"> Edit Data<span class="fa arrow"></span></a>
+                   <li>
+                        <a href="#">Edit Data<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a class="active-menu" href="<?echo site_url('Welcome/ganti_produk');?>">Edit Produk</a>
+                                <a href="<?php echo site_url('Welcome/ganti_produk');?>">Edit Produk</a>
                             </li>
-                            <li>
+                           <!-- <li>
                                 <a href="#">Second Level Link</a>
                             </li>
-                            <li>
+                        -->
+                           <!-- <li>
                                 <a href="#">Second Level Link<span class="fa arrow"></span></a>
                                 <ul class="nav nav-third-level">
                                     <li>
@@ -90,8 +95,16 @@ font-size: 16px;"> Last access : <?php echo date("F j, Y, g:i a");?> &nbsp; <a h
                                 </ul>
                                
                             </li>
+                        -->
                         </ul>
                       </li>  
+                       <li>
+                        <a href="#">Tambah Data<span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a href="<?php echo site_url('Welcome/tambah_produk');?>">Tambah Produk</a>
+                            </li>
+                        </ul>
                   <li  >
                         <a  href="<?php echo site_url('Welcome/blank')?>">Blank Page</a>
                     </li>   
@@ -139,7 +152,7 @@ font-size: 16px;"> Last access : <?php echo date("F j, Y, g:i a");?> &nbsp; <a h
 
                     <div class="form-group">
                         <label for="merk">Merk :</label>
-                        <input type="merk" class="form-control" id="merk" placeholder="Marga">
+                        <input type="merk" class="form-control" id="merk" placeholder="Merk">
                     </div>
 
                      <div class="form-group">

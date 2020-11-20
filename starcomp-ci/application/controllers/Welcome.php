@@ -37,6 +37,9 @@ class Welcome extends CI_Controller {
 	public function perbaikan(){
 		$this->load->view('main/perbaikan');
 	}
+	public function tambah_produk(){
+		$this->load->view('tambah/tambah_produk');
+	}
 	public function ganti_produk(){
 		$this->load->view('ganti/ganti_produk');
 	}
@@ -45,6 +48,19 @@ class Welcome extends CI_Controller {
 	}
 	public function detail_users(){
 		$this->load->view('main/viewonly/detail_users');
+	}
+	public function detail_kerusakan(){
+		$this->load->view('main/viewonly/detail_kerusakan');
+	}
+	public function detail_pembayaran(){
+		$this->load->view('main/viewonly/detail_pembayaran');
+	}
+	public function detail_pemesanan(){
+		$this->load->view('main/viewonly/detail_pemesanan');
+	}
+
+	public function detail_perbaikan(){
+		$this->load->view('main/viewonly/detail_perbaikan');
 	}
 
 }

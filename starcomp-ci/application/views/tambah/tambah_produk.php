@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 ?>
 
@@ -7,8 +7,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <head>
       <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>STARCOMP ADMIN : KERUSAKAN</title>
-	<!-- BOOTSTRAP STYLES-->
+    <title>STARCOMP ADMIN : TAMBAH PRODUK</title>
+    <!-- BOOTSTRAP STYLES-->
     <link href="<?php echo base_url('assets/css/bootstrap.css');?>" rel="stylesheet" />
      <!-- FONTAWESOME STYLES-->
     <link href="<?php echo base_url('assets/css/font-awesome.css')?>" rel="stylesheet" />
@@ -46,10 +46,10 @@ font-size: 16px;"> Last access : <?php echo date("F j, Y, g:i a");?> &nbsp; <a h
                 
                     
                     <li>
-                        <a href="<?php echo site_url('Welcome/index')?>">Dashboard</a>
+                        <a href="<?php echo site_url('Welcome/index')?>"> Dashboard</a>
                     </li>
                     <li>
-                        <a class="active-menu"  href="<?php echo site_url('Welcome/kerusakan')?>"> Kerusakan</a>
+                        <a href="<?php echo site_url('Welcome/kerusakan')?>">Kerusakan</a>
                     </li>
                     <li>
                         <a  href="<?php echo site_url('Welcome/users')?>">Pelanggan </a>
@@ -62,10 +62,7 @@ font-size: 16px;"> Last access : <?php echo date("F j, Y, g:i a");?> &nbsp; <a h
                     </li>
                     <li  >
                         <a  href="<?php echo site_url('Welcome/produk')?>">Produk </a>
-                    </li>
-                    <li>
-                      <a href="<?php echo site_url('Welcome/perbaikan')?>">Perbaikan</a>
-                    </li>                                  
+                    </li>                            
                     
                                        
                     <li>
@@ -98,10 +95,10 @@ font-size: 16px;"> Last access : <?php echo date("F j, Y, g:i a");?> &nbsp; <a h
                         </ul>
                       </li>  
                        <li>
-                        <a href="#">Tambah Data<span class="fa arrow"></span></a>
+                        <a class="active-menu" href="#">Tambah Data<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="<?php echo site_url('Welcome/tambah_produk');?>">Tambah Produk</a>
+                                <a class="active-menu" href="<?php echo site_url('Welcome/tambah_produk');?>">Tambah Produk</a>
                             </li>
                         </ul>
                   <li  >
@@ -114,62 +111,78 @@ font-size: 16px;"> Last access : <?php echo date("F j, Y, g:i a");?> &nbsp; <a h
         </nav>  
         <!-- /. NAV SIDE  -->
         <!-- ISI CONTENT MULAI DI SINI-->
-
-               <div id="page-wrapper" >
+ <div id="page-wrapper" >
             <div id="page-inner">
                 <div class="row">
                     <div class="col-md-12">
-                     <h2>Kerusakan</h2>   
-                        <h5>Memunculkan daftar keluhan kerusakan komputer pelanggan</h5>
+                     <h2>Tambah produk</h2>   
+                        <h5>Memunculkan halaman untuk menambah data produk STARCOMP Store</h5>
                        
                     </div>
                 </div>
-                 <!-- /. ROW  -->
+          <!-- /. ROW  -->
                  <hr />
                
             <div class="row">
                 <div class="col-md-12">
-                    <!-- Advanced Tables -->
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                             <b>Daftar Keluhan Kerusakan Komputer Pelanggan</b>
-                        </div>
-                        <div class="panel-body">
-                            <div class="table-responsive">
-                                <table class="table table-striped table-bordered table-hover" id="dataTables-example">
-                                    <thead>
-                                        <tr>
-                                            <th>No.</th>
-                                            <th>ID Kerusakan</th>
-                                            <th>Topik Kerusakan</th>
-                                            <th>Gambar</th>
-                                            <th>ID User</th>
-                                            <th>
-                                                Username
-                                            </th>
-                                            <th>Tgl Konsultasi</th>
-                                            <th>Aksi</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr class="gradeU">
-                                           
-                                           <!-- <td><button class="btn-danger">HAPUS<br></td>
-                                            <td><button class="btn-primary">EDIT</td>
-                                            -->
-                                        </tr>
-
-                                        
-                                    </tbody>
-                                </table>
-                            </div>
-                            
-                        </div>
+                    <form>
+                    <div class="form-group">
+                        <label for="id_produk">ID Produk : </label>
+                        <input type="id_produk" class="form-control" id="id_produk" placeholder="ID produk">
                     </div>
-                    <!--End Advanced Tables -->
+
+                <div class="form-group">
+                        <label for="nm_produk">Nama Produk : </label>
+                        <input type="nm_produk" class="form-control" id="nm_produk" placeholder="Nama produk">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="id_kategori">ID Kategori :</label>
+                        <input type="id_kategori" class="form-control" id="id_kategori" placeholder="model">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="nm_kategori">Nama Kategori :</label>
+                        <input type="nm_kategori" class="form-control" id="nm_kategori" placeholder="Nama kategori">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="merk">Merk :</label>
+                        <input type="merk" class="form-control" id="merk" placeholder="Merk">
+                    </div>
+
+                     <div class="form-group">
+                        <label for="stok_produk">Stok Produk :</label>
+                        <input type="stok_produk" class="form-control" id="stok_produk" placeholder="Stok produk">
+                    </div>
+
+                     <div class="form-group">
+                        <label for="hrg_produk">Harga Produk : </label>
+                        <input type="hrg_produk" class="form-control" id="hrg_produk" placeholder="Harga produk">
+                    </div>
+
+
+                    <div class="form-group">
+                        <label for="gambar">Gambar:</label>
+                    <input id="gambar-produk" name="gambar-produk" multiple="" type="file" /> 
+                    </div>
+
+                     <div class="form-group">
+                        <label for="deskripsi">Deskripsi :</label>
+                        <textarea class="form-control" id="deskripsi" placeholder="Deskripsi">
+                        </textarea>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">Tambah produk</button>
+                </form>
+
                 </div>
             </div>
-      </div>
+
+                <!-- /. ROW  -->
+                
+                <!-- /. ROW  -->
+        </div>
                
     </div>
         

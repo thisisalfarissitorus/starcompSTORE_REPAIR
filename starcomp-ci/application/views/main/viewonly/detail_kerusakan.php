@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 ?>
 
@@ -7,8 +7,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <head>
       <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>STARCOMP ADMIN : KERUSAKAN</title>
-	<!-- BOOTSTRAP STYLES-->
+    <title>STARCOMP ADMIN : DETAIL KERUSAKAN</title>
+    <!-- BOOTSTRAP STYLES-->
     <link href="<?php echo base_url('assets/css/bootstrap.css');?>" rel="stylesheet" />
      <!-- FONTAWESOME STYLES-->
     <link href="<?php echo base_url('assets/css/font-awesome.css')?>" rel="stylesheet" />
@@ -49,7 +49,7 @@ font-size: 16px;"> Last access : <?php echo date("F j, Y, g:i a");?> &nbsp; <a h
                         <a href="<?php echo site_url('Welcome/index')?>">Dashboard</a>
                     </li>
                     <li>
-                        <a class="active-menu"  href="<?php echo site_url('Welcome/kerusakan')?>"> Kerusakan</a>
+                        <a href="<?php echo site_url('Welcome/kerusakan')?>">Kerusakan</a>
                     </li>
                     <li>
                         <a  href="<?php echo site_url('Welcome/users')?>">Pelanggan </a>
@@ -63,12 +63,13 @@ font-size: 16px;"> Last access : <?php echo date("F j, Y, g:i a");?> &nbsp; <a h
                     <li  >
                         <a  href="<?php echo site_url('Welcome/produk')?>">Produk </a>
                     </li>
+
                     <li>
                       <a href="<?php echo site_url('Welcome/perbaikan')?>">Perbaikan</a>
                     </li>                                  
                     
                                        
-                    <li>
+                     <li>
                         <a href="#">Edit Data<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
@@ -114,62 +115,59 @@ font-size: 16px;"> Last access : <?php echo date("F j, Y, g:i a");?> &nbsp; <a h
         </nav>  
         <!-- /. NAV SIDE  -->
         <!-- ISI CONTENT MULAI DI SINI-->
-
-               <div id="page-wrapper" >
+ <div id="page-wrapper" >
             <div id="page-inner">
                 <div class="row">
                     <div class="col-md-12">
-                     <h2>Kerusakan</h2>   
-                        <h5>Memunculkan daftar keluhan kerusakan komputer pelanggan</h5>
+                     <h2>Detail kerusakan</h2>   
+                        <h5>Memunculkan detail keluhan kerusakan komputer pelanggan STARCOMP Store & Repair</h5>
                        
                     </div>
                 </div>
-                 <!-- /. ROW  -->
+          <!-- /. ROW  -->
                  <hr />
                
             <div class="row">
                 <div class="col-md-12">
-                    <!-- Advanced Tables -->
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                             <b>Daftar Keluhan Kerusakan Komputer Pelanggan</b>
-                        </div>
-                        <div class="panel-body">
-                            <div class="table-responsive">
-                                <table class="table table-striped table-bordered table-hover" id="dataTables-example">
-                                    <thead>
-                                        <tr>
-                                            <th>No.</th>
-                                            <th>ID Kerusakan</th>
-                                            <th>Topik Kerusakan</th>
-                                            <th>Gambar</th>
-                                            <th>ID User</th>
-                                            <th>
-                                                Username
-                                            </th>
-                                            <th>Tgl Konsultasi</th>
-                                            <th>Aksi</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr class="gradeU">
-                                           
-                                           <!-- <td><button class="btn-danger">HAPUS<br></td>
-                                            <td><button class="btn-primary">EDIT</td>
-                                            -->
-                                        </tr>
-
-                                        
-                                    </tbody>
-                                </table>
-                            </div>
-                            
-                        </div>
+                    <form>
+                    <div class="form-group">
+                        <label for="id_kerusakan">ID Kerusakan : </label>
+                        <input type="id_kerusakan" class="form-control" id="id_kerusakan" placeholder="ID Kerusakan" disabled>
                     </div>
-                    <!--End Advanced Tables -->
+
+                <div class="form-group">
+                        <label for="topik_kerusakan">Topik Kerusakan : </label>
+                        <input type="topik_kerusakan" class="form-control" id="topik_kerusakan" placeholder="Topik Kerusakan">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="tgl_konsul">Tanggal konsultasi :</label>
+                        <input type="date" class="form-control" id="tgl_konsul" placeholder="Tanggal konsultasi" readonly>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="username">Username</label>
+                        <input type="username" class="form-control" id="username" placeholder="username">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="gmbr">Gambar kerusakan</label>
+                    <input id="gmbr" name="gmbr" multiple="" type="file" /> 
+                    </div>
+
+                     <div class="form-group">
+                        <label for="deskripsi_kerusakan">Deskripsi kerusakan : </label>
+                        <textarea class="form-control" id="deskripsi_kerusakan" placeholder="Deskripsi kerusakan" rows="3"></textarea>
+                    </div>
+                </form>
+
                 </div>
             </div>
-      </div>
+
+                <!-- /. ROW  -->
+                
+                <!-- /. ROW  -->
+        </div>
                
     </div>
         

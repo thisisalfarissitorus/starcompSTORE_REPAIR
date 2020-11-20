@@ -66,18 +66,23 @@ font-size: 16px;"> Last access : <?php echo date("F j, Y, g:i a");?> &nbsp; <a h
                     <li  >
                         <a  href="<?php echo site_url('Welcome/produk')?>">Produk </a>
                     </li>                           
+
+                    <li>
+                      <a href="<?php echo site_url('Welcome/perbaikan')?>">Perbaikan</a>
+                    </li>      
                     
                                        
                     <li>
-                        <a href="#"> Edit Data<span class="fa arrow"></span></a>
+                        <a href="#">Edit Data<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
                                 <a href="<?php echo site_url('Welcome/ganti_produk');?>">Edit Produk</a>
                             </li>
-                            <li>
+                           <!-- <li>
                                 <a href="#">Second Level Link</a>
                             </li>
-                            <li>
+                        -->
+                           <!-- <li>
                                 <a href="#">Second Level Link<span class="fa arrow"></span></a>
                                 <ul class="nav nav-third-level">
                                     <li>
@@ -93,8 +98,16 @@ font-size: 16px;"> Last access : <?php echo date("F j, Y, g:i a");?> &nbsp; <a h
                                 </ul>
                                
                             </li>
+                        -->
                         </ul>
                       </li>  
+                       <li>
+                        <a href="#">Tambah Data<span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a href="<?php echo site_url('Welcome/tambah_produk');?>">Tambah Produk</a>
+                            </li>
+                        </ul>
                   <li  >
                         <a  href="<?php echo site_url('Welcome/blank')?>">Blank Page</a>
                     </li>   

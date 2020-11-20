@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 ?>
 
@@ -7,8 +7,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <head>
       <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>STARCOMP ADMIN : KERUSAKAN</title>
-	<!-- BOOTSTRAP STYLES-->
+    <title>STARCOMP ADMIN : DETAIL PEMBAYARAN</title>
+    <!-- BOOTSTRAP STYLES-->
     <link href="<?php echo base_url('assets/css/bootstrap.css');?>" rel="stylesheet" />
      <!-- FONTAWESOME STYLES-->
     <link href="<?php echo base_url('assets/css/font-awesome.css')?>" rel="stylesheet" />
@@ -49,7 +49,7 @@ font-size: 16px;"> Last access : <?php echo date("F j, Y, g:i a");?> &nbsp; <a h
                         <a href="<?php echo site_url('Welcome/index')?>">Dashboard</a>
                     </li>
                     <li>
-                        <a class="active-menu"  href="<?php echo site_url('Welcome/kerusakan')?>"> Kerusakan</a>
+                        <a href="<?php echo site_url('Welcome/kerusakan')?>">Kerusakan</a>
                     </li>
                     <li>
                         <a  href="<?php echo site_url('Welcome/users')?>">Pelanggan </a>
@@ -62,13 +62,13 @@ font-size: 16px;"> Last access : <?php echo date("F j, Y, g:i a");?> &nbsp; <a h
                     </li>
                     <li  >
                         <a  href="<?php echo site_url('Welcome/produk')?>">Produk </a>
-                    </li>
+                    </li>  
                     <li>
-                      <a href="<?php echo site_url('Welcome/perbaikan')?>">Perbaikan</a>
-                    </li>                                  
+                      <a "href="<?php echo site_url('Welcome/perbaikan')?>">Perbaikan</a>
+                    </li>                                
                     
                                        
-                    <li>
+                     <li>
                         <a href="#">Edit Data<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
@@ -114,62 +114,55 @@ font-size: 16px;"> Last access : <?php echo date("F j, Y, g:i a");?> &nbsp; <a h
         </nav>  
         <!-- /. NAV SIDE  -->
         <!-- ISI CONTENT MULAI DI SINI-->
-
-               <div id="page-wrapper" >
+ <div id="page-wrapper" >
             <div id="page-inner">
                 <div class="row">
                     <div class="col-md-12">
-                     <h2>Kerusakan</h2>   
-                        <h5>Memunculkan daftar keluhan kerusakan komputer pelanggan</h5>
+                     <h2>Detail Pembayaran</h2>   
+                        <h5>Memunculkan detail bukti pembayaran transfer pemesanan dari pelanggan STARCOMP Store & Repair yang sudah dibayar</h5>
                        
                     </div>
                 </div>
-                 <!-- /. ROW  -->
+          <!-- /. ROW  -->
                  <hr />
                
             <div class="row">
                 <div class="col-md-12">
-                    <!-- Advanced Tables -->
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                             <b>Daftar Keluhan Kerusakan Komputer Pelanggan</b>
-                        </div>
-                        <div class="panel-body">
-                            <div class="table-responsive">
-                                <table class="table table-striped table-bordered table-hover" id="dataTables-example">
-                                    <thead>
-                                        <tr>
-                                            <th>No.</th>
-                                            <th>ID Kerusakan</th>
-                                            <th>Topik Kerusakan</th>
-                                            <th>Gambar</th>
-                                            <th>ID User</th>
-                                            <th>
-                                                Username
-                                            </th>
-                                            <th>Tgl Konsultasi</th>
-                                            <th>Aksi</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr class="gradeU">
-                                           
-                                           <!-- <td><button class="btn-danger">HAPUS<br></td>
-                                            <td><button class="btn-primary">EDIT</td>
-                                            -->
-                                        </tr>
-
-                                        
-                                    </tbody>
-                                </table>
-                            </div>
-                            
-                        </div>
+                    <form>
+                    <div class="form-group">
+                        <label for="id_bayar">ID Bayar : </label>
+                        <input type="id_bayar" class="form-control" id="id_bayar" placeholder="ID Bayar" disabled>
                     </div>
-                    <!--End Advanced Tables -->
+
+                <div class="form-group">
+                        <label for="jml_bayar">Jumlah Bayar : </label>
+                        <input type="jml_bayar" class="form-control" id="jml_bayar" placeholder="Jumlah bayar">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="tgl_bayar">Tanggal bayar :</label>
+                        <input type="tgl_bayar" class="form-control" id="tgl_bayar" placeholder="Tanggal bayar" readonly>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="status_bayar">Status Bayar :</label>
+                        <input type="status_bayar" class="form-control" id="status_bayar" placeholder="status bayar">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="gmbr_bkti_transfer">Gambar bukti transfer</label>
+                    <input id="gmbr_bkti_transfer" name="gmbr_bkti_transfer" multiple="" type="file" /> 
+                    </div>
+
+                </form>
+
                 </div>
             </div>
-      </div>
+
+                <!-- /. ROW  -->
+                
+                <!-- /. ROW  -->
+        </div>
                
     </div>
         

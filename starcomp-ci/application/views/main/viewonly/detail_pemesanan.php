@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 ?>
 
@@ -7,8 +7,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <head>
       <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>STARCOMP ADMIN : KERUSAKAN</title>
-	<!-- BOOTSTRAP STYLES-->
+    <title>STARCOMP ADMIN : DETAIL PEMESANAN</title>
+    <!-- BOOTSTRAP STYLES-->
     <link href="<?php echo base_url('assets/css/bootstrap.css');?>" rel="stylesheet" />
      <!-- FONTAWESOME STYLES-->
     <link href="<?php echo base_url('assets/css/font-awesome.css')?>" rel="stylesheet" />
@@ -49,7 +49,7 @@ font-size: 16px;"> Last access : <?php echo date("F j, Y, g:i a");?> &nbsp; <a h
                         <a href="<?php echo site_url('Welcome/index')?>">Dashboard</a>
                     </li>
                     <li>
-                        <a class="active-menu"  href="<?php echo site_url('Welcome/kerusakan')?>"> Kerusakan</a>
+                        <a href="<?php echo site_url('Welcome/kerusakan')?>">Kerusakan</a>
                     </li>
                     <li>
                         <a  href="<?php echo site_url('Welcome/users')?>">Pelanggan </a>
@@ -62,13 +62,14 @@ font-size: 16px;"> Last access : <?php echo date("F j, Y, g:i a");?> &nbsp; <a h
                     </li>
                     <li  >
                         <a  href="<?php echo site_url('Welcome/produk')?>">Produk </a>
-                    </li>
+                    </li>                            
+
                     <li>
                       <a href="<?php echo site_url('Welcome/perbaikan')?>">Perbaikan</a>
-                    </li>                                  
+                    </li>      
                     
                                        
-                    <li>
+                     <li>
                         <a href="#">Edit Data<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
@@ -114,62 +115,110 @@ font-size: 16px;"> Last access : <?php echo date("F j, Y, g:i a");?> &nbsp; <a h
         </nav>  
         <!-- /. NAV SIDE  -->
         <!-- ISI CONTENT MULAI DI SINI-->
-
-               <div id="page-wrapper" >
+ <div id="page-wrapper" >
             <div id="page-inner">
                 <div class="row">
                     <div class="col-md-12">
-                     <h2>Kerusakan</h2>   
-                        <h5>Memunculkan daftar keluhan kerusakan komputer pelanggan</h5>
+                     <h2>Detail Pemesanan</h2>   
+                        <h5>Memunculkan detail pemesanan pelanggan STARCOMP Store & Repair</h5>
                        
                     </div>
                 </div>
-                 <!-- /. ROW  -->
+          <!-- /. ROW  -->
                  <hr />
                
             <div class="row">
                 <div class="col-md-12">
-                    <!-- Advanced Tables -->
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                             <b>Daftar Keluhan Kerusakan Komputer Pelanggan</b>
-                        </div>
-                        <div class="panel-body">
-                            <div class="table-responsive">
-                                <table class="table table-striped table-bordered table-hover" id="dataTables-example">
-                                    <thead>
-                                        <tr>
-                                            <th>No.</th>
-                                            <th>ID Kerusakan</th>
-                                            <th>Topik Kerusakan</th>
-                                            <th>Gambar</th>
-                                            <th>ID User</th>
-                                            <th>
-                                                Username
-                                            </th>
-                                            <th>Tgl Konsultasi</th>
-                                            <th>Aksi</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr class="gradeU">
-                                           
-                                           <!-- <td><button class="btn-danger">HAPUS<br></td>
-                                            <td><button class="btn-primary">EDIT</td>
-                                            -->
-                                        </tr>
-
-                                        
-                                    </tbody>
-                                </table>
-                            </div>
-                            
-                        </div>
+                    <form>
+                    <div class="form-group">
+                        <label for="no_pesan">No. Pemesanan : </label>
+                        <input type="no_pesan" class="form-control" id="no_pesan" placeholder="No Pemesanan" disabled>
                     </div>
-                    <!--End Advanced Tables -->
+
+                <div class="form-group">
+                        <label for="id_user">ID User : </label>
+                        <input type="id_user" class="form-control" id="id_user" placeholder="ID User">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="nama_depan">Nama depan :</label>
+                        <input type="nama_depan" class="form-control" id="nama_depan" placeholder="Nama depan" readonly>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="nama_belakang">Nama Belakang : </label>
+                        <input type="nama_belakang" class="form-control" id="nama_belakang" placeholder="nama_belakang">
+                    </div>
+
+                      <div class="form-group">
+                        <label for="no_telp">No. Telepon : </label>
+                        <input type="no_telp" class="form-control" id="no_telp" placeholder="No telepon" disabled>
+                    </div>
+
+                     <div class="form-group">
+                        <label for="email">Alamat email : </label>
+                        <input type="email" class="form-control" id="email" placeholder="Alamat email" disabled>
+                    </div>
+
+                     <div class="form-group">
+                        <label for="username">Username : </label>
+                        <input type="username" class="form-control" id="username" placeholder="Username" disabled>
+                    </div>
+
+                     <div class="form-group">
+                        <label for="id_produk">ID Produk : </label>
+                        <input type="id_produk" class="form-control" id="id_produk" placeholder="ID Kerusakan" disabled>
+                    </div>
+
+                     <div class="form-group">
+                        <label for="nm_prooduk">Nama produk : </label>
+                        <input type="nm_prooduk" class="form-control" id="nm_prooduk" placeholder="Nama produk" disabled>
+                    </div>
+
+                     <div class="form-group">
+                        <label for="merk">Merk : </label>
+                        <input type="merk" class="form-control" id="merk" placeholder="Merk" disabled>
+                    </div>
+
+                     <div class="form-group">
+                        <label for="hrg_produk">Harga produk : </label>
+                        <input type="hrg_produk" class="form-control" id="hrg_produk" placeholder="Harga produk" disabled>
+                    </div>
+
+                     <div class="form-group">
+                        <label for="id_kerusakan">ID Kerusakan : </label>
+                        <input type="id_kerusakan" class="form-control" id="id_kerusakan" placeholder="ID Kerusakan" disabled>
+                    </div>
+
+                     <div class="form-group">
+                        <label for="subtotal">Subtotal : </label>
+                        <input type="subtotal" class="form-control" id="subtotal" placeholder="Subtotal" disabled>
+                    </div>
+
+                     <div class="form-group">
+                        <label for="tgl_pesan">Tanggal pesan : </label>
+                        <input type="date" class="form-control" id="tgl_pesan" placeholder="Tanggal pesan" disabled>
+                    </div>
+
+                     <div class="form-group">
+                        <label for="id_perbaikan">ID Perbaikan : </label>
+                        <input type="id_perbaikan" class="form-control" id="id_perbaikan" placeholder="ID Perbaikan" disabled>
+                    </div>
+
+                     <div class="form-group">
+                        <label for="biaya">Biaya perbaikan : </label>
+                        <input type="biaya" class="form-control" id="biaya" placeholder="Biaya perbaikan" disabled>
+                    </div>
+
+                </form>
+
                 </div>
             </div>
-      </div>
+
+                <!-- /. ROW  -->
+                
+                <!-- /. ROW  -->
+        </div>
                
     </div>
         
