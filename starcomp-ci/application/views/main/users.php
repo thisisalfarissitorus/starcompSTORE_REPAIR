@@ -45,31 +45,33 @@ font-size: 16px;"> Last access : <?php echo date("F j, Y, g:i a");?> &nbsp; <a h
                     </li>
                 
                     
-                    <li>
-                        <a href="<?php echo site_url('Welcome/index')?>">Dashboard</a>
+                   <li>
+                        <a href="<?php echo site_url('Dashboard')?>"> Dashboard</a>
+                    </li>
+                     <li>
+                        <a  href="<?php echo site_url('Kerusakan')?>"></i> Kerusakan</a>
                     </li>
                     <li>
-                        <a  href="<?php echo site_url('Welcome/kerusakan')?>"> Kerusakan</a>
-                    </li>
-                    <li>
-                        <a class="active-menu" href="<?php echo site_url('Welcome/users')?>"> Pelanggan </a>
+                        <a class="active-menu" href="<?php echo site_url('Users')?>">Pelanggan </a>
                     </li>
                            <li  >
-                        <a   href="<?php echo site_url('Welcome/pembayaran')?>"> Pembayaran</a>
+                        <a   href="<?php echo site_url('Pembayaran')?>">Pembayaran</a>
                     </li>   
-                    <li  >
-                        <a  href="<?php echo site_url('Welcome/produk')?>">Produk </a>
+                      <li  >
+                        <a  href="<?php echo site_url('Pemesanan')?>">Pemesanan</a>
                     </li>
-
+                    <li  >
+                        <a  href="<?php echo site_url('Produk')?>"> Produk </a>
+                    </li>
                     <li>
-                      <a href="<?php echo site_url('Welcome/perbaikan')?>">Perbaikan</a>
-                    </li>                            
+                      <a href="<?php echo site_url('Perbaikan')?>">Perbaikan</a>
+                    </li>                              
                     
                    <li>
                         <a href="#">Edit Data<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="<?php echo site_url('Welcome/ganti_produk');?>">Edit Produk</a>
+                                <a href="<?php echo site_url('Produk/ganti_produk');?>">Edit Produk</a>
                             </li>
                            <!-- <li>
                                 <a href="#">Second Level Link</a>
@@ -98,7 +100,7 @@ font-size: 16px;"> Last access : <?php echo date("F j, Y, g:i a");?> &nbsp; <a h
                         <a href="#">Tambah Data<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="<?php echo site_url('Welcome/tambah_produk');?>">Tambah Produk</a>
+                                <a href="<?php echo site_url('Produk/tambah_produk');?>">Tambah Produk</a>
                             </li>
                         </ul>
                   <li  >
@@ -140,9 +142,7 @@ font-size: 16px;"> Last access : <?php echo date("F j, Y, g:i a");?> &nbsp; <a h
                                             <th>Nama depan</th>
                                             <th>Nama belakang</th>
                                             <th>Kota lahir</th>
-                                            <th>
-                                                Tgl Lahir
-                                            </th>
+                                            <th>Tgl Lahir</th>
                                             <th>Jenis Kelamin</th>
                                             <th>Nomor telepon</th>
                                             <th>E-mail</th>
@@ -154,13 +154,28 @@ font-size: 16px;"> Last access : <?php echo date("F j, Y, g:i a");?> &nbsp; <a h
                                     </thead>
                                     <tbody>
                                         <tr class="gradeU">
-                                           
-                                           <!-- <td><button class="btn-danger">HAPUS<br></td>
-                                            <td><button class="btn-primary">EDIT</td>
-                                            -->
+                                            <?php
+                                            $no = 1;
+                                            foreach ($user as $user) {
+                                            ?>
+                                           <td><?php echo $no;?></td>
+                                           <td><?php echo $user->id_user; ?></td>
+                                           <td><?php echo $user->nama_depan; ?></td>
+                                           <td><?php echo $user->nama_belakang; ?></td>
+                                           <td><?php echo $user->kota_lahir; ?></td>
+                                           <td><?php echo $user->tgl_lahir; ?></td>
+                                           <td><?php echo $user->jns_kelamin; ?></td>
+                                           <td><?php echo $user->no_telp; ?></td>
+                                           <td><?php echo $user->email; ?></td>
+                                           <td><?php echo $user->username; ?></td>
+                                           <td><?php echo $user->password; ?></td>
+                                           <td><?php echo $user->hak_akses; ?><td>
+                                            <a class="btn btn-primary" href="<?php echo site_url('Users/detail/'. $user->id_user) ;?>">Lihat detail</a> 
+                                            <a class=" btn btn-danger" href="#">Hapus</a>
+                                        </td>
                                         </tr>
+                                        <?php $no++; }?>
 
-                                        
                                     </tbody>
                                 </table>
                             </div>

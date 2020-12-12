@@ -1,5 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
+
+//echo form_open(site_url('Perbaikan/detail_perbaikan/'.$perbaikan->id_perbaikan));
 ?>
 
 <!DOCTYPE html>
@@ -45,35 +47,34 @@ font-size: 16px;"> Last access : <?php echo date("F j, Y, g:i a");?> &nbsp; <a h
                     </li>
                 
                     
-                    <li>
-                        <a href="<?php echo site_url('Welcome/index')?>">Dashboard</a>
+                   <li>
+                        <a  href="<?php echo site_url('Dashboard')?>"> Dashboard</a>
+                    </li>
+                     <li>
+                        <a  href="<?php echo site_url('Kerusakan')?>"></i> Kerusakan</a>
                     </li>
                     <li>
-                        <a href="<?php echo site_url('Welcome/kerusakan')?>">Kerusakan</a>
-                    </li>
-                    <li>
-                        <a  href="<?php echo site_url('Welcome/users')?>">Pelanggan </a>
+                        <a  href="<?php echo site_url('Users')?>">Pelanggan </a>
                     </li>
                            <li  >
-                        <a   href="<?php echo site_url('Welcome/pembayaran')?>"> Pembayaran</a>
+                        <a   href="<?php echo site_url('Pembayaran')?>">Pembayaran</a>
                     </li>   
                       <li  >
-                        <a  href="<?php echo site_url('Welcome/pemesanan')?>">Pemesanan</a>
+                        <a  href="<?php echo site_url('Pemesanan')?>">Pemesanan</a>
                     </li>
                     <li  >
-                        <a  href="<?php echo site_url('Welcome/produk')?>">Produk </a>
-                    </li>     
-
+                        <a  href="<?php echo site_url('Produk')?>"> Produk </a>
+                    </li>
                     <li>
-                      <a href="<?php echo site_url('Welcome/perbaikan')?>">Perbaikan</a>
-                    </li>                             
+                      <a href="<?php echo site_url('Perbaikan')?>">Perbaikan</a>
+                    </li>                            
                     
                                        
                     <li>
                         <a href="#">Edit Data<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="<?php echo site_url('Welcome/ganti_produk');?>">Edit Produk</a>
+                                <a href="<?php echo site_url('Produk/ganti_produk');?>">Edit Produk</a>
                             </li>
                            <!-- <li>
                                 <a href="#">Second Level Link</a>
@@ -102,7 +103,7 @@ font-size: 16px;"> Last access : <?php echo date("F j, Y, g:i a");?> &nbsp; <a h
                         <a href="#">Tambah Data<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="<?php echo site_url('Welcome/tambah_produk');?>">Tambah Produk</a>
+                                <a href="<?php echo site_url('Produk/tambah_produk');?>">Tambah Produk</a>
                             </li>
                         </ul>
                   <li  >
@@ -132,37 +133,37 @@ font-size: 16px;"> Last access : <?php echo date("F j, Y, g:i a");?> &nbsp; <a h
                     <form>
                     <div class="form-group">
                         <label for="id_perbaikan">ID Perbaikan : </label>
-                        <input type="id_perbaikan" class="form-control" id="id_perbaikan" placeholder="ID Perbaikan">
+                        <input type="id_perbaikan" class="form-control" id="id_perbaikan" placeholder="ID Perbaikan" value="">
                     </div>
 
                 <div class="form-group">
                         <label for="id_kerusakan">ID Kerusakan : </label>
-                        <input type="id_kerusakan" class="form-control" id="id_kerusakan" placeholder="ID Kerusakan">
+                        <input type="id_kerusakan" class="form-control" id="id_kerusakan" placeholder="ID Kerusakan" value="">
                     </div>
 
                     <div class="form-group">
                         <label for="tgl_konsul">Tanggal konsultasi : </label>
-                        <input type="date" class="form-control" id="tgl_konsul" placeholder="Tanggal konsultasi">
+                        <input type="date" class="form-control" id="tgl_konsul" placeholder="Tanggal konsultasi" value="">
                     </div>
 
                     <div class="form-group">
                         <label for="tgl_perbaikan">Tanggal perbaikan :</label>
-                        <input type="tgl_perbaikan" class="form-control" id="tgl_perbaikan" placeholder="Tanggal perbaikan">
+                        <input type="tgl_perbaikan" class="form-control" id="tgl_perbaikan" placeholder="Tanggal perbaikan" value="">
                     </div>
 
                     <div class="form-group">
                         <label for="topik_perbaikan">Topik perbaikan : </label>
-                        <input type="topik_perbaikan" class="form-control" id="topik_perbaikan" placeholder="Topik perbaikan">
+                        <input type="topik_perbaikan" class="form-control" id="topik_perbaikan" placeholder="Topik perbaikan" value="">
                     </div>
 
                      <div class="form-group">
                         <label for="id_user">ID User :</label>
-                        <input type="id_user" class="form-control" id="id_user" placeholder="ID User">
+                        <input type="id_user" class="form-control" id="id_user" placeholder="ID User" value="">
                     </div>
 
                      <div class="form-group">
                         <label for="username">Username : </label>
-                        <input type="username" class="form-control" id="username" placeholder="Username">
+                        <input type="username" class="form-control" id="username" placeholder="Username" value="">
                     </div>
 
 
@@ -173,13 +174,16 @@ font-size: 16px;"> Last access : <?php echo date("F j, Y, g:i a");?> &nbsp; <a h
 
                      <div class="form-group">
                         <label for="deskripsi">Deskripsi :</label>
-                        <textarea class="form-control" id="deskripsi_perbaikan" placeholder="Deskripsi perbaikan"></textarea>
+                        <textarea class="form-control" id="deskripsi_perbaikan" placeholder="Deskripsi perbaikan" value="">
+                        </textarea>
                     </div>
 
                     <div class="form-group">
                         <label for="biaya">Biaya perbaikan : </label>
-                        <input type="biaya" class="form-control" id="biaya" placeholder="Biaya perbaikan">
+                        <input type="biaya" class="form-control" id="biaya" placeholder="Biaya perbaikan" value="">
                     </div>
+
+                    <a href="<?php echo site_url('Perbaikan')?>" class="btn btn-primary">Kembali ke halaman Perbaikan</a>
 
                 </form>
 

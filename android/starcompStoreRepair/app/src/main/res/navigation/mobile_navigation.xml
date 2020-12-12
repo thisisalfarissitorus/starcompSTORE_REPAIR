@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/nav_home">
+
+    <fragment
+        android:id="@+id/nav_home"
+        android:name="org.anonymous.starcompstorerepair.ui.home.HomeFragment"
+        android:label="@string/menu_home"
+        tools:layout="@layout/fragment_home" />
+    <fragment
+        android:id="@+id/nav_repair"
+        android:name="org.anonymous.starcompstorerepair.ui.repair.RepairFragment"
+        android:label="@string/menu_repair"
+        tools:layout="@layout/fragment_repair" />
+    <fragment
+        android:id="@+id/nav_register"
+        android:name="org.anonymous.starcompstorerepair.ui.register.RegisterFragment"
+        android:label="@string/menu_register"
+        tools:layout="@layout/fragment_register" />
+
+    <fragment
+        android:id="@+id/nav_profile"
+        android:name="org.anonymous.starcompstorerepair.ui.profile.ProfileFragment"
+        android:label="@string/menu_profile"
+        tools:layout="@layout/fragment_profile" />
+    <fragment
+        android:id="@+id/nav_kategori"
+        android:name="org.anonymous.starcompstorerepair.ui.kategori.KategoriFragment"
+        android:label="@string/menu_kategori"
+        tools:layout="@layout/fragment_kategori"
+        />
+</navigation>

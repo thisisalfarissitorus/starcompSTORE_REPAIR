@@ -1,5 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
+
+//echo form_open(site_url('pemesanan/detail_pemesanan/'.$pemesanan->no_pesan));
 ?>
 
 <!DOCTYPE html>
@@ -46,34 +48,33 @@ font-size: 16px;"> Last access : <?php echo date("F j, Y, g:i a");?> &nbsp; <a h
                 
                     
                     <li>
-                        <a href="<?php echo site_url('Welcome/index')?>">Dashboard</a>
+                        <a href="<?php echo site_url('Dashboard')?>"> Dashboard</a>
+                    </li>
+                     <li>
+                        <a  href="<?php echo site_url('Kerusakan')?>"></i> Kerusakan</a>
                     </li>
                     <li>
-                        <a href="<?php echo site_url('Welcome/kerusakan')?>">Kerusakan</a>
-                    </li>
-                    <li>
-                        <a  href="<?php echo site_url('Welcome/users')?>">Pelanggan </a>
+                        <a  href="<?php echo site_url('Users')?>">Pelanggan </a>
                     </li>
                            <li  >
-                        <a   href="<?php echo site_url('Welcome/pembayaran')?>"> Pembayaran</a>
+                        <a   href="<?php echo site_url('Pembayaran')?>">Pembayaran</a>
                     </li>   
                       <li  >
-                        <a  href="<?php echo site_url('Welcome/pemesanan')?>">Pemesanan</a>
+                        <a  href="<?php echo site_url('Pemesanan')?>">Pemesanan</a>
                     </li>
                     <li  >
-                        <a  href="<?php echo site_url('Welcome/produk')?>">Produk </a>
-                    </li>                            
-
+                        <a  href="<?php echo site_url('Produk')?>"> Produk </a>
+                    </li>
                     <li>
-                      <a href="<?php echo site_url('Welcome/perbaikan')?>">Perbaikan</a>
-                    </li>      
+                      <a href="<?php echo site_url('Perbaikan')?>">Perbaikan</a>
+                    </li>       
                     
                                        
                      <li>
                         <a href="#">Edit Data<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="<?php echo site_url('Welcome/ganti_produk');?>">Edit Produk</a>
+                                <a href="<?php echo site_url('produk/ganti_produk');?>">Edit Produk</a>
                             </li>
                            <!-- <li>
                                 <a href="#">Second Level Link</a>
@@ -102,7 +103,7 @@ font-size: 16px;"> Last access : <?php echo date("F j, Y, g:i a");?> &nbsp; <a h
                         <a href="#">Tambah Data<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="<?php echo site_url('Welcome/tambah_produk');?>">Tambah Produk</a>
+                                <a href="<?php echo site_url('Produk/tambah_produk');?>">Tambah Produk</a>
                             </li>
                         </ul>
                   <li  >
@@ -132,83 +133,85 @@ font-size: 16px;"> Last access : <?php echo date("F j, Y, g:i a");?> &nbsp; <a h
                     <form>
                     <div class="form-group">
                         <label for="no_pesan">No. Pemesanan : </label>
-                        <input type="no_pesan" class="form-control" id="no_pesan" placeholder="No Pemesanan" disabled>
+                        <input type="no_pesan" class="form-control" id="no_pesan" placeholder="No Pemesanan" disabled value="">
                     </div>
 
                 <div class="form-group">
                         <label for="id_user">ID User : </label>
-                        <input type="id_user" class="form-control" id="id_user" placeholder="ID User">
+                        <input type="id_user" class="form-control" id="id_user" placeholder="ID User" value="">
                     </div>
 
                     <div class="form-group">
                         <label for="nama_depan">Nama depan :</label>
-                        <input type="nama_depan" class="form-control" id="nama_depan" placeholder="Nama depan" readonly>
+                        <input type="nama_depan" class="form-control" id="nama_depan" placeholder="Nama depan" readonly value="">
                     </div>
 
                     <div class="form-group">
                         <label for="nama_belakang">Nama Belakang : </label>
-                        <input type="nama_belakang" class="form-control" id="nama_belakang" placeholder="nama_belakang">
+                        <input type="nama_belakang" class="form-control" id="nama_belakang" placeholder="nama_belakang" value="">
                     </div>
 
                       <div class="form-group">
                         <label for="no_telp">No. Telepon : </label>
-                        <input type="no_telp" class="form-control" id="no_telp" placeholder="No telepon" disabled>
+                        <input type="no_telp" class="form-control" id="no_telp" placeholder="No telepon" disabled value="">
                     </div>
 
                      <div class="form-group">
                         <label for="email">Alamat email : </label>
-                        <input type="email" class="form-control" id="email" placeholder="Alamat email" disabled>
+                        <input type="email" class="form-control" id="email" placeholder="Alamat email" disabled value="">
                     </div>
 
                      <div class="form-group">
                         <label for="username">Username : </label>
-                        <input type="username" class="form-control" id="username" placeholder="Username" disabled>
+                        <input type="username" class="form-control" id="username" placeholder="Username" disabled value="">
                     </div>
 
                      <div class="form-group">
                         <label for="id_produk">ID Produk : </label>
-                        <input type="id_produk" class="form-control" id="id_produk" placeholder="ID Kerusakan" disabled>
+                        <input type="id_produk" class="form-control" id="id_produk" placeholder="ID Kerusakan" disabled value="">
                     </div>
 
                      <div class="form-group">
                         <label for="nm_prooduk">Nama produk : </label>
-                        <input type="nm_prooduk" class="form-control" id="nm_prooduk" placeholder="Nama produk" disabled>
+                        <input type="nm_prooduk" class="form-control" id="nm_prooduk" placeholder="Nama produk" disabled value="">
                     </div>
 
                      <div class="form-group">
                         <label for="merk">Merk : </label>
-                        <input type="merk" class="form-control" id="merk" placeholder="Merk" disabled>
+                        <input type="merk" class="form-control" id="merk" placeholder="Merk" disabled value="">
                     </div>
 
                      <div class="form-group">
                         <label for="hrg_produk">Harga produk : </label>
-                        <input type="hrg_produk" class="form-control" id="hrg_produk" placeholder="Harga produk" disabled>
+                        <input type="hrg_produk" class="form-control" id="hrg_produk" placeholder="Harga produk" disabled value="">
                     </div>
 
                      <div class="form-group">
                         <label for="id_kerusakan">ID Kerusakan : </label>
-                        <input type="id_kerusakan" class="form-control" id="id_kerusakan" placeholder="ID Kerusakan" disabled>
+                        <input type="id_kerusakan" class="form-control" id="id_kerusakan" placeholder="ID Kerusakan" disabled value="">
                     </div>
 
                      <div class="form-group">
                         <label for="subtotal">Subtotal : </label>
-                        <input type="subtotal" class="form-control" id="subtotal" placeholder="Subtotal" disabled>
+                        <input type="subtotal" class="form-control" id="subtotal" placeholder="Subtotal" disabled value="">
                     </div>
 
                      <div class="form-group">
                         <label for="tgl_pesan">Tanggal pesan : </label>
-                        <input type="date" class="form-control" id="tgl_pesan" placeholder="Tanggal pesan" disabled>
+                        <input type="date" class="form-control" id="tgl_pesan" placeholder="Tanggal pesan" disabled value="">
                     </div>
 
                      <div class="form-group">
                         <label for="id_perbaikan">ID Perbaikan : </label>
-                        <input type="id_perbaikan" class="form-control" id="id_perbaikan" placeholder="ID Perbaikan" disabled>
+                        <input type="id_perbaikan" class="form-control" id="id_perbaikan" placeholder="ID Perbaikan" disabled value="">
                     </div>
 
                      <div class="form-group">
                         <label for="biaya">Biaya perbaikan : </label>
-                        <input type="biaya" class="form-control" id="biaya" placeholder="Biaya perbaikan" disabled>
+                        <input type="biaya" class="form-control" id="biaya" placeholder="Biaya perbaikan" disabled value="">
                     </div>
+
+                    <a href="<?php echo site_url('Pemesanan');?>" class="btn btn-primary">Kembali ke halaman Pemesanan</a>
 
                 </form>
 

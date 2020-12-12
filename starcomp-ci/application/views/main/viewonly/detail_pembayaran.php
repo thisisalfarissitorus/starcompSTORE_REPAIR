@@ -1,5 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
+
+echo form_open(site_url('Kerusakan/detail_kerusakan/'.$pembayaran->id_bayar));
 ?>
 
 <!DOCTYPE html>
@@ -44,35 +46,34 @@ font-size: 16px;"> Last access : <?php echo date("F j, Y, g:i a");?> &nbsp; <a h
                     <img src="<?php echo base_url('assets/img/find_user.png')?>" class="user-image img-responsive"/>
                     </li>
                 
-                    
-                    <li>
-                        <a href="<?php echo site_url('Welcome/index')?>">Dashboard</a>
+                  <li>
+                        <a href="<?php echo site_url('Dashboard')?>"> Dashboard</a>
+                    </li>
+                     <li>
+                        <a  href="<?php echo site_url('Kerusakan')?>"></i> Kerusakan</a>
                     </li>
                     <li>
-                        <a href="<?php echo site_url('Welcome/kerusakan')?>">Kerusakan</a>
-                    </li>
-                    <li>
-                        <a  href="<?php echo site_url('Welcome/users')?>">Pelanggan </a>
+                        <a  href="<?php echo site_url('Users')?>">Pelanggan </a>
                     </li>
                            <li  >
-                        <a   href="<?php echo site_url('Welcome/pembayaran')?>"> Pembayaran</a>
+                        <a   href="<?php echo site_url('Pembayaran')?>">Pembayaran</a>
                     </li>   
                       <li  >
-                        <a  href="<?php echo site_url('Welcome/pemesanan')?>">Pemesanan</a>
+                        <a  href="<?php echo site_url('Pemesanan')?>">Pemesanan</a>
                     </li>
                     <li  >
-                        <a  href="<?php echo site_url('Welcome/produk')?>">Produk </a>
-                    </li>  
+                        <a  href="<?php echo site_url('Produk')?>"> Produk </a>
+                    </li>
                     <li>
-                      <a "href="<?php echo site_url('Welcome/perbaikan')?>">Perbaikan</a>
-                    </li>                                
+                      <a href="<?php echo site_url('Perbaikan')?>">Perbaikan</a>
+                    </li>                             
                     
                                        
                      <li>
                         <a href="#">Edit Data<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="<?php echo site_url('Welcome/ganti_produk');?>">Edit Produk</a>
+                                <a href="<?php echo site_url('Produk/ganti_produk');?>">Edit Produk</a>
                             </li>
                            <!-- <li>
                                 <a href="#">Second Level Link</a>
@@ -101,7 +102,7 @@ font-size: 16px;"> Last access : <?php echo date("F j, Y, g:i a");?> &nbsp; <a h
                         <a href="#">Tambah Data<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="<?php echo site_url('Welcome/tambah_produk');?>">Tambah Produk</a>
+                                <a href="<?php echo site_url('Produk/tambah_produk');?>">Tambah Produk</a>
                             </li>
                         </ul>
                   <li  >
@@ -131,28 +132,30 @@ font-size: 16px;"> Last access : <?php echo date("F j, Y, g:i a");?> &nbsp; <a h
                     <form>
                     <div class="form-group">
                         <label for="id_bayar">ID Bayar : </label>
-                        <input type="id_bayar" class="form-control" id="id_bayar" placeholder="ID Bayar" disabled>
+                        <input type="id_bayar" class="form-control" id="id_bayar" placeholder="ID Bayar" disabled value="<?php echo $pembayaran->id_bayar; ?>">
                     </div>
 
                 <div class="form-group">
                         <label for="jml_bayar">Jumlah Bayar : </label>
-                        <input type="jml_bayar" class="form-control" id="jml_bayar" placeholder="Jumlah bayar">
+                        <input type="jml_bayar" class="form-control" id="jml_bayar" placeholder="Jumlah bayar" value="<?php echo $pembayaran->jml_bayar?>">
                     </div>
 
                     <div class="form-group">
                         <label for="tgl_bayar">Tanggal bayar :</label>
-                        <input type="tgl_bayar" class="form-control" id="tgl_bayar" placeholder="Tanggal bayar" readonly>
+                        <input type="tgl_bayar" class="form-control" id="tgl_bayar" placeholder="Tanggal bayar" readonly value="<?php echo $pembayaran->tgl_bayar?>">
                     </div>
 
                     <div class="form-group">
                         <label for="status_bayar">Status Bayar :</label>
-                        <input type="status_bayar" class="form-control" id="status_bayar" placeholder="status bayar">
+                        <input type="status_bayar" class="form-control" id="status_bayar" placeholder="status bayar" value="<?php echo $pembayaran->status_bayar?>">
                     </div>
 
                     <div class="form-group">
-                        <label for="gmbr_bkti_transfer">Gambar bukti transfer</label>
-                    <input id="gmbr_bkti_transfer" name="gmbr_bkti_transfer" multiple="" type="file" /> 
+                        <label for="gmbr_bkti_transfer">Gambar bukti transfer</label><br />
+                    <img src="<?php echo base_url('assets/img/bayar/'.$pembayaran->namafilebayar.'');?>" width="300px" height="300px">
                     </div>
+
+                    <a href="<?php echo site_url('Pembayaran')?>" class="btn btn-primary">Kembali ke halaman Pembayaran</a>
 
                 </form>
 

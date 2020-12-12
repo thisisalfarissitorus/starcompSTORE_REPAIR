@@ -1,5 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
+
+echo form_open(site_url('Users/detail/'.$produk->id_produk));
 ?>
 
 <!DOCTYPE html>
@@ -45,35 +47,34 @@ font-size: 16px;"> Last access : <?php echo date("F j, Y, g:i a");?> &nbsp; <a h
                     </li>
                 
                     
-                    <li>
-                        <a href="<?php echo site_url('Welcome/index')?>">Dashboard</a>
+                   <li>
+                        <a  href="<?php echo site_url('Dashboard')?>"> Dashboard</a>
+                    </li>
+                     <li>
+                        <a  href="<?php echo site_url('Kerusakan')?>"></i> Kerusakan</a>
                     </li>
                     <li>
-                        <a href="<?php echo site_url('Welcome/kerusakan')?>">Kerusakan</a>
-                    </li>
-                    <li>
-                        <a  href="<?php echo site_url('Welcome/users')?>">Pelanggan </a>
+                        <a  href="<?php echo site_url('Users')?>">Pelanggan </a>
                     </li>
                            <li  >
-                        <a   href="<?php echo site_url('Welcome/pembayaran')?>"> Pembayaran</a>
+                        <a   href="<?php echo site_url('Pembayaran')?>">Pembayaran</a>
                     </li>   
                       <li  >
-                        <a  href="<?php echo site_url('Welcome/pemesanan')?>">Pemesanan</a>
+                        <a  href="<?php echo site_url('Pemesanan')?>">Pemesanan</a>
                     </li>
                     <li  >
-                        <a  href="<?php echo site_url('Welcome/produk')?>">Produk </a>
-                    </li>     
-
+                        <a  href="<?php echo site_url('Produk')?>"> Produk </a>
+                    </li>
                     <li>
-                      <a href="<?php echo site_url('Welcome/perbaikan')?>">Perbaikan</a>
-                    </li>                             
+                      <a href="<?php echo site_url('Perbaikan')?>">Perbaikan</a>
+                    </li>                            
                     
                                        
                    <li>
                         <a href="#">Edit Data<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="<?php echo site_url('Welcome/ganti_produk');?>">Edit Produk</a>
+                                <a href="<?php echo site_url('produk/ganti_produk');?>">Edit Produk</a>
                             </li>
                            <!-- <li>
                                 <a href="#">Second Level Link</a>
@@ -102,7 +103,7 @@ font-size: 16px;"> Last access : <?php echo date("F j, Y, g:i a");?> &nbsp; <a h
                         <a href="#">Tambah Data<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="<?php echo site_url('Welcome/tambah_produk');?>">Tambah Produk</a>
+                                <a href="<?php echo site_url('Produk/tambah_produk');?>">Tambah Produk</a>
                             </li>
                         </ul>
                   <li  >
@@ -132,51 +133,51 @@ font-size: 16px;"> Last access : <?php echo date("F j, Y, g:i a");?> &nbsp; <a h
                     <form>
                     <div class="form-group">
                         <label for="id_produk">ID Produk : </label>
-                        <input type="id_produk" class="form-control" id="id_produk" placeholder="ID produk">
+                        <input readonly type="id_produk" class="form-control" id="id_produk" placeholder="ID produk" value="<?php echo $produk->id_produk; ?>">
                     </div>
 
                 <div class="form-group">
                         <label for="nm_produk">Nama Produk : </label>
-                        <input type="nm_produk" class="form-control" id="nm_produk" placeholder="Nama produk">
+                        <input type="nm_produk" class="form-control" id="nm_produk" placeholder="Nama produk" value="<?php echo $produk->nm_produk; ?>">
                     </div>
 
                     <div class="form-group">
                         <label for="id_kategori">ID Kategori :</label>
-                        <input type="id_kategori" class="form-control" id="id_kategori" placeholder="model">
+                        <input type="id_kategori" class="form-control" id="id_kategori" placeholder="model" value="<?php echo $produk->id_kategori; ?>">
                     </div>
 
                     <div class="form-group">
                         <label for="nm_kategori">Nama Kategori :</label>
-                        <input type="nm_kategori" class="form-control" id="nm_kategori" placeholder="Nama kategori">
+                        <input type="nm_kategori" class="form-control" id="nm_kategori" placeholder="Nama kategori" value="<?php echo $produk->nm_kategori; ?>">
                     </div>
 
                     <div class="form-group">
                         <label for="merk">Merk :</label>
-                        <input type="merk" class="form-control" id="merk" placeholder="Merk">
+                        <input type="merk" class="form-control" id="merk" placeholder="Merk" value="<?php echo $produk->merk; ?>">
                     </div>
 
                      <div class="form-group">
                         <label for="stok_produk">Stok Produk :</label>
-                        <input type="stok_produk" class="form-control" id="stok_produk" placeholder="Stok produk">
+                        <input type="stok_produk" class="form-control" id="stok_produk" placeholder="Stok produk" value="<?php echo $produk->stok_produk; ?>">
                     </div>
 
                      <div class="form-group">
                         <label for="hrg_produk">Harga Produk : </label>
-                        <input type="hrg_produk" class="form-control" id="hrg_produk" placeholder="Harga produk">
+                        <input type="hrg_produk" class="form-control" id="hrg_produk" placeholder="Harga produk" value="<?php echo $produk->hrg_produk; ?>">
                     </div>
 
 
                     <div class="form-group">
                         <label for="gambar">Gambar:</label>
-                    <input id="gambar-produk" name="gambar-produk" multiple="" type="file" /> 
+                        <br>
+                    <img src="<?php echo base_url('assets/img/produk/'.$produk->namafileproduk.'');?>" height="500px" width="700px" />
                     </div>
 
                      <div class="form-group">
                         <label for="deskripsi">Deskripsi :</label>
-                        <input type="deskripsi" class="form-control" id="deskripsi" placeholder="Deskripsi">
+                        <textarea id="deskripsi" class="form-control" placeholder="Deskripsi" value="<?php echo $produk->deskripsi; ?>" readonly></textarea>
                     </div>
 
-                    <button type="submit" class="btn btn-primary">Simpan</button>
                 </form>
 
                 </div>

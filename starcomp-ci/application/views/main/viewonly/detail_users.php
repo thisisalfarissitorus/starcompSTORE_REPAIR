@@ -1,5 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
+
+echo form_open(site_url('Users/detail/'.$user->id_user));
 ?>
 
 <!DOCTYPE html>
@@ -7,7 +9,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <head>
       <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>STARCOMP ADMIN : DETAIL PENGGUNA</title>
+    <title>STARCOMP ADMIN : DETAIL PELANGGAN</title>
     <!-- BOOTSTRAP STYLES-->
     <link href="<?php echo base_url('assets/css/bootstrap.css');?>" rel="stylesheet" />
      <!-- FONTAWESOME STYLES-->
@@ -44,36 +46,34 @@ font-size: 16px;"> Last access : <?php echo date("F j, Y, g:i a");?> &nbsp; <a h
                     <img src="<?php echo base_url('assets/img/find_user.png')?>" class="user-image img-responsive"/>
                     </li>
                 
-                    
                     <li>
-                        <a href="<?php echo site_url('Welcome/index')?>">Dashboard</a>
+                        <a  href="<?php echo site_url('Dashboard')?>"> Dashboard</a>
+                    </li>
+                     <li>
+                        <a  href="<?php echo site_url('Kerusakan')?>"></i> Kerusakan</a>
                     </li>
                     <li>
-                        <a href="<?php echo site_url('Welcome/kerusakan')?>">Kerusakan</a>
-                    </li>
-                    <li>
-                        <a  href="<?php echo site_url('Welcome/users')?>">Pelanggan </a>
+                        <a  href="<?php echo site_url('Users')?>">Pelanggan </a>
                     </li>
                            <li  >
-                        <a   href="<?php echo site_url('Welcome/pembayaran')?>"> Pembayaran</a>
+                        <a   href="<?php echo site_url('Pembayaran')?>">Pembayaran</a>
                     </li>   
                       <li  >
-                        <a  href="<?php echo site_url('Welcome/pemesanan')?>">Pemesanan</a>
+                        <a  href="<?php echo site_url('Pemesanan')?>">Pemesanan</a>
                     </li>
                     <li  >
-                        <a  href="<?php echo site_url('Welcome/produk')?>">Produk </a>
-                    </li> 
-
+                        <a  href="<?php echo site_url('Produk')?>"> Produk </a>
+                    </li>
                     <li>
-                      <a href="<?php echo site_url('Welcome/perbaikan')?>">Perbaikan</a>
-                    </li>                                 
+                      <a href="<?php echo site_url('Perbaikan')?>">Perbaikan</a>
+                    </li>                                     
                     
                                        
                      <li>
                         <a href="#">Edit Data<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="<?php echo site_url('Welcome/ganti_produk');?>">Edit Produk</a>
+                                <a href="<?php echo site_url('Produk/ganti_produk');?>">Edit Produk</a>
                             </li>
                            <!-- <li>
                                 <a href="#">Second Level Link</a>
@@ -102,7 +102,7 @@ font-size: 16px;"> Last access : <?php echo date("F j, Y, g:i a");?> &nbsp; <a h
                         <a href="#">Tambah Data<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="<?php echo site_url('Welcome/tambah_produk');?>">Tambah Produk</a>
+                                <a href="<?php echo site_url('Produk/tambah_produk');?>">Tambah Produk</a>
                             </li>
                         </ul>
                   <li  >
@@ -119,8 +119,8 @@ font-size: 16px;"> Last access : <?php echo date("F j, Y, g:i a");?> &nbsp; <a h
             <div id="page-inner">
                 <div class="row">
                     <div class="col-md-12">
-                     <h2>Detail pengguna</h2>   
-                        <h5>Memunculkan detail pengguna aplikasi STARCOMP Store & Repair</h5>
+                     <h2>Detail pelanggan</h2>   
+                        <h5>Memunculkan detail pelanggan aplikasi STARCOMP Store & Repair</h5>
                        
                     </div>
                 </div>
@@ -132,67 +132,69 @@ font-size: 16px;"> Last access : <?php echo date("F j, Y, g:i a");?> &nbsp; <a h
                     <form>
                     <div class="form-group">
                         <label for="id_user">ID User : </label>
-                        <input type="id_user" class="form-control" id="id_user" placeholder="ID User" disabled>
+                        <input type="id_user" class="form-control" id="id_user" placeholder="ID User" disabled value="<?php echo $user->id_user; ?>">
                     </div>
 
                 <div class="form-group">
                         <label for="nm_produk">Nama Depan : </label>
-                        <input type="nm_depan" class="form-control" id="nm_depan" placeholder="Nama depan">
+                        <input type="nm_depan" class="form-control" id="nm_depan" placeholder="Nama depan" value="<?php echo $user->nama_depan; ?>" readonly>
                     </div>
 
                     <div class="form-group">
                         <label for="nm_belakang">Nama belakang :</label>
-                        <input type="nm_belakang" class="form-control" id="nm_belakang" placeholder="Nama belakang">
+                        <input type="nm_belakang" class="form-control" id="nm_belakang" placeholder="Nama belakang" value="<?php echo $user->nama_belakang; ?>" readonly>
                     </div>
 
                     <div class="form-group">
                         <label for="kota_lahir">Kota lahir :</label>
-                        <input type="kota_lahir" class="form-control" id="kota_lahir" placeholder="Kota lahir">
+                        <input type="kota_lahir" class="form-control" id="kota_lahir" placeholder="Kota lahir" value="<?php echo $user->kota_lahir; ?>" readonly>
                     </div>
 
                     <div class="form-group">
                         <label for="tgl_lahir">Tanggal lahir :</label>
-                        <input type="date" class="form-control" id="tgl_lahir" placeholder="Tgl Lahir">
+                        <input readonly type="date" class="form-control" id="tgl_lahir" placeholder="Tgl Lahir" value="<?php echo $user->tgl_lahir; ?>">
                     </div>
 
                      <div class="form-group">
                         <label for="jns_kelamin">Jenis kelamin :</label>
-                        <input type="jns_kelamin" class="form-control" id="jns_kelamin" placeholder="Jenis Kelamin">
+                        <input readonly type="jns_kelamin" class="form-control" id="jns_kelamin" placeholder="Jenis Kelamin" value="<?php echo $user->jns_kelamin; ?>">
                     </div>
 
                      <div class="form-group">
                         <label for="no_telp">Nomor telepon : </label>
-                        <input type="no_telp" class="form-control" id="no_telp" placeholder="Nomor Telepon">
+                        <input readonly type="no_telp" class="form-control" id="no_telp" placeholder="Nomor Telepon" value="<?php echo $user->no_telp; ?>">
                     </div>
 
 
                 <div class="form-group">
                         <label for="email">Alamat email : </label>
-                        <input type="email" class="form-control" id="email" placeholder="alamat email">
+                        <input type="email" class="form-control" id="email" placeholder="alamat email" value="<?php echo $user->email; ?>" readonly>
                     </div>
 
 
                 <div class="form-group">
                         <label for="username">Username : </label>
-                        <input type="username" class="form-control" id="username" placeholder="Username">
+                        <input type="username" class="form-control" id="username" placeholder="Username" value="<?php echo $user->username; ?>" readonly>
                     </div>
 
 
                 <div class="form-group">
                         <label for="password">Password : </label>
-                        <input type="password" class="form-control" id="password" placeholder="password">
+                        <input type="password" class="form-control" id="password" placeholder="password" value="<?php echo $user->password; ?>" readonly>
                     </div>
 
 
                     <div class="form-group">
-                        <label for="foto_profil">Foto Profil :</label>
-                    <input id="foto_profil" name="foto_profil" multiple="" type="file" /> 
+                        <label for="foto_profil">Foto Profil :</label><br />
+                    <img src="<?php echo base_url('assets/img/users/'.$user->namafile.'');?>">
                     </div>
 
                      <div class="form-group">
                         <label for="hak_akses">Hak Akses :</label>
-                        <input type="hak_akses" class="form-control" id="hak_akses" placeholder="Hak Akses">
+                        <input type="hak_akses" class="form-control" id="hak_akses" placeholder="Hak Akses" value="<?php echo $user->hak_akses; ?>" readonly>
                     </div>
+
+                    <a href="<?php echo site_url('Users') ;?>" class="btn btn-primary">Kembali ke halaman Pelanggan</a>
                 </form>
 
                 </div>

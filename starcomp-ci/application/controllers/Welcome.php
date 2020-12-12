@@ -6,6 +6,8 @@ class Welcome extends CI_Controller {
 	public function __construct()
 	{
 		parent::__construct();
+		$this->load->database();
+		$this->load->model('users_model');
 	}
 
 	public function login(){
@@ -23,7 +25,8 @@ class Welcome extends CI_Controller {
 		$this->load->view('main/produk');
 	}
 	public function users(){
-		$this->load->view('main/users');
+		$result['user'] = $this->users_model->listing();
+		$this->load->view('main/users', $result);
 	}
 	public function pemesanan(){
 		$this->load->view('main/pemesanan');

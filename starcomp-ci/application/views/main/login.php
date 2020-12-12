@@ -1,5 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
+
+echo form_open(site_url('login'));
 ?>
 
 <!DOCTYPE html>
@@ -7,7 +9,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <head>
       <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>LOGIN ADMIN STARCOMP</title>
+    <title>Login Admin STARCOMP</title>
 	<!-- BOOTSTRAP STYLES-->
    <link href="<?php echo base_url('assets/css/bootstrap.css');?>" rel="stylesheet" />
      <!-- FONTAWESOME STYLES-->
@@ -19,27 +21,51 @@ defined('BASEPATH') OR exit('No direct script access allowed');
      <!-- GOOGLE FONTS-->
    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
 </head>
-<body>
-  <div class="jumbotron" style="background-color: #f54505;">
+
+<body style="background: red;">
+  <div class="jumbotron container"
+  style="background-color: #940d06; 
+  margin-top: 3em;
+  border-color: white;
+  border-style: ridge;
+  ">
+    <center>
+      <img src="<?php echo base_url('assets/img/newmore.jpg')?>" width="700" height="200"/></center>
+    <h1 style="text-align: center; color: white;">Login Admin STARCOMP</h1>
   <div class="row">
     <form>
         <div class="form-group">
-              <input type="username" class="form-control" id="username" placeholder="username">
+              <input type="username" class="form-control" id="username" placeholder="username" required autofocus maxlength="15">
         </div>
 
         <div class="form-group">
-              <input type="password" class="form-control" id="password" placeholder="Password">
+
+              <input type="password" class="form-control" id="password" placeholder="Password" required
+              maxlength="20">
+            <p style="color: white; text-transform: lowercase;">
+              <input type="checkbox" onclick="showPassword()">Tampilkan Password
+            </p>
+            <script type="text/javascript">
+              //script untuk menampilkan password
+              function showPassword() {
+                var x = document.getElementById("password");
+                if (x.type === "password") {
+                  x.type = "text";
+                } else {
+                  x.type = "password";
+                }
+              }
+            </script>
+
         </div>
-        <button type="submit" class="btn btn-primary col-xs-4" action="">
-          Login
-        </button>
+        <center>
+        <a class="btn btn-primary" href="<?php echo site_url('login/login_action');?>"><b>Log In</b></a>
+        <a class="btn btn-warning" href="<?php echo site_url('login/refresh');?>"><b>Reset halaman</b></a>
+      </center>
   </form>
   </div>
+  <?php echo form_close(); ?>
 </div>
-
-
-
-
 
       <script src="<?php echo base_url('assets/js/jquery-1.10.2.js')?>"></script>
       <!-- BOOTSTRAP SCRIPTS -->

@@ -45,32 +45,33 @@ font-size: 16px;"> Last access : <?php echo date("F j, Y, g:i a");?> &nbsp; <a h
           </li>
         
           
-                    <li>
-                        <a href="<?php echo site_url('Welcome/index')?>">Dashboard</a>
-                    </li>
                    <li>
-                        <a  href="<?php echo site_url('Welcome/kerusakan')?>"> Kerusakan</a>
+                        <a href="<?php echo site_url('Dashboard')?>"> Dashboard</a>
+                    </li>
+                     <li>
+                        <a  href="<?php echo site_url('kerusakan')?>"></i> Kerusakan</a>
                     </li>
                     <li>
-                        <a  href="<?php echo site_url('Welcome/users')?>"> Pelanggan </a>
+                        <a  href="<?php echo site_url('users')?>">Pelanggan </a>
                     </li>
                <li  >
-                        <a   href="<?php echo site_url('Welcome/pembayaran')?>"> Pembayaran</a>
+                        <a   href="<?php echo site_url('pembayaran')?>">Pembayaran</a>
                     </li> 
+                      <li  >
+                        <a  href="<?php echo site_url('pemesanan')?>">Pemesanan</a>
+                    </li>
                     <li  >
-                        <a  href="<?php echo site_url('Welcome/produk')?>">Produk </a>
-                    </li>  
-
-                       <li>
-                      <a href="<?php echo site_url('Welcome/perbaikan')?>">Perbaikan</a>
-                    </li>        
-          
+                        <a  href="<?php echo site_url('produk')?>"> Produk </a>
+                    </li>
+                    <li>
+                      <a href="<?php echo site_url('perbaikan')?>">Perbaikan</a>
+                    </li>             
                              
                    <li>
                         <a href="#">Edit Data<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="<?php echo site_url('Welcome/ganti_produk');?>">Edit Produk</a>
+                                <a href="<?php echo site_url('produk/ganti_produk');?>">Edit Produk</a>
                             </li>
                            <!-- <li>
                                 <a href="#">Second Level Link</a>
@@ -99,7 +100,7 @@ font-size: 16px;"> Last access : <?php echo date("F j, Y, g:i a");?> &nbsp; <a h
                         <a href="#">Tambah Data<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="<?php echo site_url('Welcome/tambah_produk');?>">Tambah Produk</a>
+                                <a href="<?php echo site_url('Produk/tambah_produk');?>">Tambah Produk</a>
                             </li>
                         </ul>
                   <li  >

@@ -1,5 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
+
+echo form_open(site_url('Kerusakan/detail_kerusakan/'.$kerusakan->id_kerusakan));
 ?>
 
 <!DOCTYPE html>
@@ -44,36 +46,34 @@ font-size: 16px;"> Last access : <?php echo date("F j, Y, g:i a");?> &nbsp; <a h
                     <img src="<?php echo base_url('assets/img/find_user.png')?>" class="user-image img-responsive"/>
                     </li>
                 
-                    
-                    <li>
-                        <a href="<?php echo site_url('Welcome/index')?>">Dashboard</a>
+                  <li>
+                        <a href="<?php echo site_url('Dashboard')?>"> Dashboard</a>
+                    </li>
+                     <li>
+                        <a  href="<?php echo site_url('Kerusakan')?>"></i> Kerusakan</a>
                     </li>
                     <li>
-                        <a href="<?php echo site_url('Welcome/kerusakan')?>">Kerusakan</a>
-                    </li>
-                    <li>
-                        <a  href="<?php echo site_url('Welcome/users')?>">Pelanggan </a>
+                        <a  href="<?php echo site_url('Users')?>">Pelanggan </a>
                     </li>
                            <li  >
-                        <a   href="<?php echo site_url('Welcome/pembayaran')?>"> Pembayaran</a>
+                        <a   href="<?php echo site_url('Pembayaran')?>">Pembayaran</a>
                     </li>   
                       <li  >
-                        <a  href="<?php echo site_url('Welcome/pemesanan')?>">Pemesanan</a>
+                        <a  href="<?php echo site_url('Pemesanan')?>">Pemesanan</a>
                     </li>
                     <li  >
-                        <a  href="<?php echo site_url('Welcome/produk')?>">Produk </a>
+                        <a  href="<?php echo site_url('Produk')?>"> Produk </a>
                     </li>
-
                     <li>
-                      <a href="<?php echo site_url('Welcome/perbaikan')?>">Perbaikan</a>
-                    </li>                                  
+                      <a href="<?php echo site_url('Perbaikan')?>">Perbaikan</a>
+                    </li>                                
                     
                                        
                      <li>
                         <a href="#">Edit Data<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="<?php echo site_url('Welcome/ganti_produk');?>">Edit Produk</a>
+                                <a href="<?php echo site_url('Produk/ganti_produk');?>">Edit Produk</a>
                             </li>
                            <!-- <li>
                                 <a href="#">Second Level Link</a>
@@ -102,7 +102,7 @@ font-size: 16px;"> Last access : <?php echo date("F j, Y, g:i a");?> &nbsp; <a h
                         <a href="#">Tambah Data<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="<?php echo site_url('Welcome/tambah_produk');?>">Tambah Produk</a>
+                                <a href="<?php echo site_url('Produk/tambah_produk');?>">Tambah Produk</a>
                             </li>
                         </ul>
                   <li  >
@@ -132,33 +132,34 @@ font-size: 16px;"> Last access : <?php echo date("F j, Y, g:i a");?> &nbsp; <a h
                     <form>
                     <div class="form-group">
                         <label for="id_kerusakan">ID Kerusakan : </label>
-                        <input type="id_kerusakan" class="form-control" id="id_kerusakan" placeholder="ID Kerusakan" disabled>
+                        <input type="id_kerusakan" class="form-control" id="id_kerusakan" placeholder="ID Kerusakan" value="<?php echo $kerusakan->id_kerusakan; ?>" disabled>
                     </div>
 
                 <div class="form-group">
                         <label for="topik_kerusakan">Topik Kerusakan : </label>
-                        <input type="topik_kerusakan" class="form-control" id="topik_kerusakan" placeholder="Topik Kerusakan">
+                        <input type="topik_kerusakan" class="form-control" id="topik_kerusakan" placeholder="Topik Kerusakan" value="<?php echo $kerusakan->topik_kerusakan; ?>">
                     </div>
 
                     <div class="form-group">
                         <label for="tgl_konsul">Tanggal konsultasi :</label>
-                        <input type="date" class="form-control" id="tgl_konsul" placeholder="Tanggal konsultasi" readonly>
+                        <input type="date" class="form-control" id="tgl_konsul" placeholder="Tanggal konsultasi" readonly value="<?php echo $kerusakan->tgl_konsul; ?>">
                     </div>
 
                     <div class="form-group">
                         <label for="username">Username</label>
-                        <input type="username" class="form-control" id="username" placeholder="username">
+                        <input type="username" class="form-control" id="username" placeholder="username" value="<?php echo $kerusakan->username; ?>">
                     </div>
 
                     <div class="form-group">
-                        <label for="gmbr">Gambar kerusakan</label>
-                    <input id="gmbr" name="gmbr" multiple="" type="file" /> 
+                        <label for="gmbr">Gambar kerusakan</label><br />
+                    <img src="<?php echo base_url('assets/img/kerusakan/'.$kerusakan->namafilerusak.'');?>" />
                     </div>
-
+                    
                      <div class="form-group">
                         <label for="deskripsi_kerusakan">Deskripsi kerusakan : </label>
-                        <textarea class="form-control" id="deskripsi_kerusakan" placeholder="Deskripsi kerusakan" rows="3"></textarea>
+                        <textarea class="form-control" id="deskripsi_kerusakan" placeholder="Deskripsi kerusakan" value="<?php echo $kerusakan->dskpsi_kerusakan; ?>" readonly></textarea>
                     </div>
+                    <a href="<?php echo site_url('Kerusakan') ?>" class="btn btn-primary">Kembali ke halaman Kerusakan</a>
                 </form>
 
                 </div>
