@@ -1,5 +1,7 @@
 ﻿<?php
 defined('BASEPATH') OR exit('No direct script access allowed');
+
+
 ?>
 
 <!DOCTYPE html>
@@ -34,7 +36,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   <div style="color: white;
 padding: 15px 50px 5px 50px;
 float: right;
-font-size: 16px;"> Last access : <?php echo date("F j, Y, g:i a");?> &nbsp; <a href="#" class="btn btn-danger square-btn-adjust">Logout</a> </div>
+font-size: 16px;"> Last access : <?php echo date("F j, Y, g:i a");?> &nbsp; <a href="<?php echo site_url('Login/logout');?>" class="btn btn-danger square-btn-adjust">Logout</a> </div>
         </nav>   
            <!-- /. NAV TOP  -->
                 <nav class="navbar-default navbar-side" role="navigation">
@@ -72,7 +74,7 @@ font-size: 16px;"> Last access : <?php echo date("F j, Y, g:i a");?> &nbsp; <a h
                         <a href="#">Edit Data<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="<?php echo site_url('Produk/ganti_produk');?>">Edit Produk</a>
+                                <a href="#">Edit Produk</a>
                             </li>
                            <!-- <li>
                                 <a href="#">Second Level Link</a>
@@ -124,6 +126,158 @@ font-size: 16px;"> Last access : <?php echo date("F j, Y, g:i a");?> &nbsp; <a h
                         Halaman Dashboard memunculkan berbagai macam data-data pembelian hingga pelanggan
                         tanpa pengubahan data apapun.
                     </h5>
+
+                    <!-- TABEL PRODUK -->
+                    <div class="panel-heading">
+                             <b>Daftar Produk Pelanggan Star Computer</b>
+                        </div>
+                        <div class="panel-body">
+                            <div class="table-responsive">
+                                <table class="table table-striped table-bordered table-hover" id="dataTables-example">
+                                    <thead>
+                                        <tr>
+                                            <th>No.</th>
+                                            <th>ID Produk</th>
+                                            <th>Nama Produk</th>
+                                            <th>ID Kategori</th>
+                                            <th>Nama Kategori</th>
+                                            <th>Merk</th>
+                                            <th>Stok Produk</th>
+                                            <th>Harga Produk</th>
+                                            <th>Status</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr class="gradeU">
+                                            <?php 
+                                            $no = 1;
+                                            foreach ($produk as $produk) {
+                                                //penangan error
+                                                if (!$produk) {
+                                                   $error = $this->load->view('errors/blank');
+                                                }
+                                            ?>
+                                            <td><?php echo $no ;?></td>
+                                            <td><?php echo $produk->id_produk?></td>
+                                            <td><?php echo $produk->nm_produk; ?></td>
+                                            <td><?php echo $produk->id_kategori;?></td>
+                                            <td><?php echo $produk->nm_kategori;?></td>
+                                            <td><?php echo $produk->merk;?></td>
+                                            <td><?php echo $produk->stok_produk;?></td>
+                                            <td><?php echo "Rp.".$produk->hrg_produk;?></td>
+                                            <td><b>
+                                                <?php
+                                                    if ($produk->stok_produk == 0) {
+                                                        echo "HABIS";
+                                                    } else {
+                                                        echo "MASIH TERSEDIA";
+                                                    }
+                                                ?>
+                                            </b></td>
+                                        </tr>
+                                        <?php $no++; }?>
+
+                                        
+                                    </tbody>
+                                </table>
+                            </div>
+                            
+                        </div>
+                    </div>
+
+                     <div class="panel panel-default">
+                        <div class="panel-heading">
+                             <b>Daftar Pengguna STARCOMP Store & Repair</b>
+                        </div>
+                    <div class="table-responsive">
+                                <table class="table table-striped table-bordered table-hover" id="dataTables-example">
+                                    <thead>
+                                        <tr>
+                                            <th>No.</th>
+                                            <th>ID User</th>
+                                            <th>Nama depan</th>
+                                            <th>Nama belakang</th>
+                                            <th>Kota lahir</th>
+                                            <th>Tgl Lahir</th>
+                                            <th>Jenis Kelamin</th>
+                                            <th>Nomor telepon</th>
+                                            <th>E-mail</th>
+                                            <th>Username</th>
+                                            <th>Hak akses</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr class="gradeU">
+                                            <?php
+                                            $no = 1;
+                                            foreach ($user as $user) {
+                                            ?>
+                                           <td><?php echo $no;?></td>
+                                           <td><?php echo $user->id_user; ?></td>
+                                           <td><?php echo $user->nama_depan; ?></td>
+                                           <td><?php echo $user->nama_belakang; ?></td>
+                                           <td><?php echo $user->kota_lahir; ?></td>
+                                           <td><?php echo $user->tgl_lahir; ?></td>
+                                           <td><?php echo $user->jns_kelamin; ?></td>
+                                           <td><?php echo $user->no_telp; ?></td>
+                                           <td><?php echo $user->email; ?></td>
+                                           <td><?php echo $user->username; ?></td>
+                                           <td><?php echo $user->hak_akses; ?><td>
+                                        <?php $no++; }?>
+
+                                    </tbody>
+                                </table>
+                            </div>
+                            
+                        </div>
+                    </div>
+
+                     <div class="panel panel-default">
+                        <div class="panel-heading">
+                             <b>Daftar Keluhan Kerusakan Komputer Pelanggan</b>
+                        </div>
+                        <div class="panel-body">
+                            <div class="table-responsive">
+                                <table class="table table-striped table-bordered table-hover" id="dataTables-example">
+                                    <thead>
+                                        <tr>
+                                            <th>No.</th>
+                                            <th>ID Kerusakan</th>
+                                            <th>Topik Kerusakan</th>
+                                            <th>ID User</th>
+                                            <th>Username</th>
+                                            <th>Tgl Konsultasi</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr class="gradeU">
+                                            <?php 
+                                                $no = 1;
+                                                foreach ($kerusakan as $kerusakan) {
+                                            ?>
+                                            <td><?php echo $no; ?></td>
+                                            <td><?php echo $kerusakan->id_kerusakan; ?></td>
+                                            <td><?php echo $kerusakan->topik_kerusakan; ?></td>
+                                            <td><?php echo $kerusakan->id_user; ?></td>
+                                            <td><?php echo $kerusakan->username; ?></td>
+                                            <td><?php echo $kerusakan->tgl_konsul?></td>
+                                        </tr>
+                                        <?php 
+                                        $no++;
+                                    }
+                                        ?>
+
+                                        
+                                    </tbody>
+                                </table>
+                            </div>
+                            
+                        </div>
+                    </div>
+
+
+
+                    <!--END OF DASHBOARD MAIN PART -->
                     </div>
                 </div>
 

@@ -9,7 +9,7 @@ class Perbaikan extends CI_Controller {
 		$this->load->model('perbaikan_model');
 
 		//proteksi
-		//$this->simple_login->cek_login();
+		//$this->Login_utilities->cek_login();
 	}
 
 	public function index(){
@@ -20,11 +20,11 @@ class Perbaikan extends CI_Controller {
 
 	}
 
-	public function detail_perbaikan(){
+	public function detail_perbaikan($id_perbaikan){
 
-		//$result['perbaikan'] = $this->perbaikan_model->detail_perbaikan($id_perbaikan);
+		$result['perbaikan'] = $this->perbaikan_model->detail_perbaikan($id_perbaikan);
 
-		$this->load->view('main/viewonly/detail_perbaikan');
+		$this->load->view('main/viewonly/detail_perbaikan', $result);
 
 	}
 

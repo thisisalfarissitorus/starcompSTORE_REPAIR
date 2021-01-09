@@ -31,12 +31,12 @@ echo form_open(site_url('Users/detail/'.$produk->id_produk));
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-               <a class="navbar-brand" href="<?php echo site_url('Welcome/index')?>">STARCOMP ADMIN</a> 
+               <a class="navbar-brand" href="<?php echo site_url('Dashboard/')?>">STARCOMP ADMIN</a> 
             </div>
   <div style="color: white;
 padding: 15px 50px 5px 50px;
 float: right;
-font-size: 16px;"> Last access : <?php echo date("F j, Y, g:i a");?> &nbsp; <a href="#" class="btn btn-danger square-btn-adjust">Logout</a> </div>
+font-size: 16px;"> Last access : <?php echo date("F j, Y, g:i a");?> &nbsp; <a href="<?php echo site_url('Login/logout');?>" class="btn btn-danger square-btn-adjust">Logout</a> </div>
         </nav>   
            <!-- /. NAV TOP  -->
                 <nav class="navbar-default navbar-side" role="navigation">
@@ -74,7 +74,7 @@ font-size: 16px;"> Last access : <?php echo date("F j, Y, g:i a");?> &nbsp; <a h
                         <a href="#">Edit Data<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="<?php echo site_url('produk/ganti_produk');?>">Edit Produk</a>
+                                <a href="#">Edit Produk</a>
                             </li>
                            <!-- <li>
                                 <a href="#">Second Level Link</a>
@@ -120,8 +120,8 @@ font-size: 16px;"> Last access : <?php echo date("F j, Y, g:i a");?> &nbsp; <a h
             <div id="page-inner">
                 <div class="row">
                     <div class="col-md-12">
-                     <h2>Detail produk</h2>   
-                        <h5>Memunculkan detail produk</h5>
+                     <h2>Detail produk <?php echo $produk->nm_produk; ?></h2>   
+                        <h5>Memunculkan detail produk dari ID <?php echo $produk->id_produk; ?></h5>
                        
                     </div>
                 </div>
@@ -163,7 +163,7 @@ font-size: 16px;"> Last access : <?php echo date("F j, Y, g:i a");?> &nbsp; <a h
 
                      <div class="form-group">
                         <label for="hrg_produk">Harga Produk : </label>
-                        <input type="hrg_produk" class="form-control" id="hrg_produk" placeholder="Harga produk" value="<?php echo $produk->hrg_produk; ?>">
+                        <input type="hrg_produk" class="form-control" id="hrg_produk" placeholder="Harga produk" value="<?php echo "Rp.".$produk->hrg_produk; ?>">
                     </div>
 
 
@@ -175,8 +175,12 @@ font-size: 16px;"> Last access : <?php echo date("F j, Y, g:i a");?> &nbsp; <a h
 
                      <div class="form-group">
                         <label for="deskripsi">Deskripsi :</label>
-                        <textarea id="deskripsi" class="form-control" placeholder="Deskripsi" value="<?php echo $produk->deskripsi; ?>" readonly></textarea>
+                        <textarea id="deskripsi" class="form-control" placeholder="Deskripsi" readonly>
+                            <?php echo $produk->deskripsi; ?>
+                        </textarea>
                     </div>
+                    <a class="btn btn-primary" href="<?php echo site_url('Produk');?>">Kembali ke halaman Produk</a>
+                    <a href="<?php echo site_url('produk/ganti_produk/'.$produk->id_produk)?>" class="btn btn-warning">Edit produk</a> 
 
                 </form>
 

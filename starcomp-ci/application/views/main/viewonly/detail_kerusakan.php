@@ -36,7 +36,7 @@ echo form_open(site_url('Kerusakan/detail_kerusakan/'.$kerusakan->id_kerusakan))
   <div style="color: white;
 padding: 15px 50px 5px 50px;
 float: right;
-font-size: 16px;"> Last access : <?php echo date("F j, Y, g:i a");?> &nbsp; <a href="#" class="btn btn-danger square-btn-adjust">Logout</a> </div>
+font-size: 16px;"> Last access : <?php echo date("F j, Y, g:i a");?> &nbsp; <a href="<?php echo site_url('Login/logout');?>" class="btn btn-danger square-btn-adjust">Logout</a> </div>
         </nav>   
            <!-- /. NAV TOP  -->
                 <nav class="navbar-default navbar-side" role="navigation">
@@ -73,7 +73,7 @@ font-size: 16px;"> Last access : <?php echo date("F j, Y, g:i a");?> &nbsp; <a h
                         <a href="#">Edit Data<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="<?php echo site_url('Produk/ganti_produk');?>">Edit Produk</a>
+                                <a href="#">Edit Produk</a>
                             </li>
                            <!-- <li>
                                 <a href="#">Second Level Link</a>
@@ -119,7 +119,7 @@ font-size: 16px;"> Last access : <?php echo date("F j, Y, g:i a");?> &nbsp; <a h
             <div id="page-inner">
                 <div class="row">
                     <div class="col-md-12">
-                     <h2>Detail kerusakan</h2>   
+                     <h2>Detail kerusakan <?php echo  $kerusakan->id_kerusakan;?></h2>   
                         <h5>Memunculkan detail keluhan kerusakan komputer pelanggan STARCOMP Store & Repair</h5>
                        
                     </div>
@@ -157,7 +157,9 @@ font-size: 16px;"> Last access : <?php echo date("F j, Y, g:i a");?> &nbsp; <a h
                     
                      <div class="form-group">
                         <label for="deskripsi_kerusakan">Deskripsi kerusakan : </label>
-                        <textarea class="form-control" id="deskripsi_kerusakan" placeholder="Deskripsi kerusakan" value="<?php echo $kerusakan->dskpsi_kerusakan; ?>" readonly></textarea>
+                        <textarea class="form-control" id="deskripsi_kerusakan" placeholder="Deskripsi kerusakan" readonly rows="8">
+                            <?php echo $kerusakan->dskpsi_kerusakan; ?>
+                        </textarea>
                     </div>
                     <a href="<?php echo site_url('Kerusakan') ?>" class="btn btn-primary">Kembali ke halaman Kerusakan</a>
                 </form>

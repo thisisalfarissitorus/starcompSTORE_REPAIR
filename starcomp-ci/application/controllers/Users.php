@@ -9,7 +9,7 @@ class Users extends CI_Controller {
 		$this->load->model('users_model');
 
 		//proteksi
-		//$this->simple_login->cek_login();
+		//$this->Login_utilities->cek_login();
 	}
 
 	public function index(){

@@ -9,7 +9,7 @@ class Pembayaran extends CI_Controller {
 		$this->load->model('pembayaran_model');
 
 		//proteksi
-		//$this->simple_login->cek_login();
+		//$this->login_utilities->cek_login();
 	}
 
 	public function index(){

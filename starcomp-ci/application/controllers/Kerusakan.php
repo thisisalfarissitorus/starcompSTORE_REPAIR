@@ -9,7 +9,7 @@ class Kerusakan extends CI_Controller {
 		$this->load->model('kerusakan_model');
 
 		//proteksi
-		//$this->simple_login->cek_login();
+		//$this->Login_utilities->cek_login();
 	}
 
 	public function index(){
@@ -26,6 +26,13 @@ class Kerusakan extends CI_Controller {
 
 		$this->load->view('main/viewonly/detail_kerusakan', $result);
 
+	}
+
+	public function hps_kerusakan($id_kerusakan)
+	{
+		$this->kerusakan->hps_kerusakan($id_kerusakan);
+
+		header("Refresh:0; url=".site_url('Kerusakan/')."");
 	}
 
 } 

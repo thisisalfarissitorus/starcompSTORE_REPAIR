@@ -1,8 +1,6 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-echo form_open(site_url('Produk/edit_produk'.$produk->id_produk));
-
 ?>
 
 <!DOCTYPE html>
@@ -32,12 +30,12 @@ echo form_open(site_url('Produk/edit_produk'.$produk->id_produk));
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-               <a class="navbar-brand" href="<?php echo site_url('Welcome/index')?>">STARCOMP ADMIN</a> 
+               <a class="navbar-brand" href="<?php echo site_url('Dashboard/')?>">STARCOMP ADMIN</a> 
             </div>
   <div style="color: white;
 padding: 15px 50px 5px 50px;
 float: right;
-font-size: 16px;"> Last access : <?php echo date("F j, Y, g:i a");?> &nbsp; <a href="#" class="btn btn-danger square-btn-adjust">Logout</a> </div>
+font-size: 16px;"> Last access : <?php echo date("F j, Y, g:i a");?> &nbsp; <a href="<?php echo site_url('Login/logout');?>" class="btn btn-danger square-btn-adjust">Logout</a> </div>
         </nav>   
            <!-- /. NAV TOP  -->
                 <nav class="navbar-default navbar-side" role="navigation">
@@ -128,43 +126,45 @@ font-size: 16px;"> Last access : <?php echo date("F j, Y, g:i a");?> &nbsp; <a h
                 </div>
           <!-- /. ROW  -->
                  <hr />
-               
+
             <div class="row">
                 <div class="col-md-12">
-                    <form>
+                    <?php
+                echo form_open_multipart(site_url('produk/ganti_action/'. $produk->id_produk));
+               ?>
                     <div class="form-group">
                         <label for="id_produk">ID Produk : </label>
-                        <input type="id_produk" class="form-control" id="id_produk" placeholder="ID produk" value="<?php echo $produk->id_produk; ?>" readonly>
+                        <input type="text" class="form-control" name="id_produk" id="id_produk" placeholder="ID produk" value="<?php echo $produk->id_produk; ?>" readonly>
                     </div>
 
                 <div class="form-group">
                         <label for="nm_produk">Nama Produk : </label>
-                        <input type="nm_produk" class="form-control" id="nm_produk" placeholder="Nama produk" value="<?php echo $produk->nm_produk; ?>">
+                        <input type="text" class="form-control" id="nm_produk" name="nm_produk" placeholder="Nama produk" value="<?php echo $produk->nm_produk; ?>" maxlength="50" required>
                     </div>
 
                     <div class="form-group">
                         <label for="id_kategori">ID Kategori :</label>
-                        <input type="id_kategori" class="form-control" id="id_kategori" placeholder="model" value="<?php echo $produk->id_kategori; ?>" readonly>
+                        <input type="text" class="form-control" id="id_kategori" name="id_kategori" placeholder="model" value="<?php echo $produk->id_kategori; ?>" readonly>
                     </div>
 
                     <div class="form-group">
                         <label for="nm_kategori">Nama Kategori :</label>
-                        <input type="nm_kategori" class="form-control" id="nm_kategori" placeholder="Nama kategori" value="<?php echo $produk->nm_kategori; ?>" readonly>
+                        <input type="text" class="form-control" id="nm_kategori" name="nm_kategori" placeholder="Nama kategori" value="<?php echo $produk->nm_kategori; ?>" readonly>
                     </div>
 
                     <div class="form-group">
                         <label for="merk">Merk :</label>
-                        <input type="merk" class="form-control" id="merk" placeholder="Merk" value="<?php echo $produk->merk; ?>">
+                        <input type="text" class="form-control" id="merk" name="merk" placeholder="Merk" value="<?php echo $produk->merk; ?>" maxlength="20" required>
                     </div>
 
                      <div class="form-group">
                         <label for="stok_produk">Stok Produk :</label>
-                        <input type="stok_produk" class="form-control" id="stok_produk" placeholder="Stok produk" value="<?php echo $produk->stok_produk; ?>">
+                        <input type="text" class="form-control" id="stok_produk" name="stok_produk" placeholder="Stok produk" value="<?php echo $produk->stok_produk; ?>" maxlength="3" required>
                     </div>
 
                      <div class="form-group">
                         <label for="hrg_produk">Harga Produk : </label>
-                        <input type="hrg_produk" class="form-control" id="hrg_produk" placeholder="Harga produk" value="<?php echo $produk->hrg_produk; ?>">
+                        <input type="text" class="form-control" id="hrg_produk" name="hrg_produk" placeholder="Harga produk" value="<?php echo $produk->hrg_produk; ?>" maxlength="7" required>
                     </div>
 
 
@@ -174,20 +174,19 @@ font-size: 16px;"> Last access : <?php echo date("F j, Y, g:i a");?> &nbsp; <a h
                             <br />
                             <br />
                         <label for="ganti-gambar">Ganti gambar :</label>
-                        <input id="namafileproduk" name="namafileproduk" type="file"/>
+                        <input id="namafileproduk" name="namafileproduk" type="file" accept="image/jpeg, image/jpg, image/png" />
                     </div>
 
                      <div class="form-group">
                         <label for="deskripsi">Deskripsi :</label>
-                       <textarea class="form-control" id="deskripsi" placeholder="Deskripsi" value="<?php echo $produk->deskripsi; ?>"></textarea>
+                       <textarea class="form-control" id="deskripsi" name="deskripsi" placeholder="Deskripsi" value="<?php echo $produk->deskripsi; ?>" rows="7" maxlength="265" required><?php echo $produk->deskripsi; ?></textarea>
                     </div>
 
-                    <button type="submit" class="btn btn-primary">Simpan</button>
-                </form>
-
+                   <button type="submit" class="btn-primary">Simpan perubahan</button>
+                    <a class="btn btn-warning" href="#">Hapus Semua</a>
+                <?php echo form_close(); ?>
                 </div>
             </div>
-
                 <!-- /. ROW  -->
                 
                 <!-- /. ROW  -->

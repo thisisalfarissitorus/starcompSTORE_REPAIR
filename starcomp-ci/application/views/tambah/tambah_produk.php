@@ -29,12 +29,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-               <a class="navbar-brand" href="<?php echo site_url('Welcome/index')?>">STARCOMP ADMIN</a> 
+               <a class="navbar-brand" href="<?php echo site_url('Dashboard/')?>">STARCOMP ADMIN</a> 
             </div>
   <div style="color: white;
 padding: 15px 50px 5px 50px;
 float: right;
-font-size: 16px;"> Last access : <?php echo date("F j, Y, g:i a");?> &nbsp; <a href="#" class="btn btn-danger square-btn-adjust">Logout</a> </div>
+font-size: 16px;"> Last access : <?php echo date("F j, Y, g:i a");?> &nbsp; <a href="<?php echo site_url('Login/logout');?>" class="btn btn-danger square-btn-adjust">Logout</a> </div>
         </nav>   
            <!-- /. NAV TOP  -->
                 <nav class="navbar-default navbar-side" role="navigation">
@@ -72,7 +72,7 @@ font-size: 16px;"> Last access : <?php echo date("F j, Y, g:i a");?> &nbsp; <a h
                         <a href="#">Edit Data<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="<?php echo site_url('produk/ganti_produk');?>">Edit Produk</a>
+                                <a href="#">Edit Produk</a>
                             </li>
                            <!-- <li>
                                 <a href="#">Second Level Link</a>
@@ -128,57 +128,78 @@ font-size: 16px;"> Last access : <?php echo date("F j, Y, g:i a");?> &nbsp; <a h
                
             <div class="row">
                 <div class="col-md-12">
-                    <form>
+               <?php
+                echo form_open_multipart(site_url('produk/tambah_action'));
+               ?>
                     <div class="form-group">
-                        <label for="id_produk">ID Produk : </label>
-                        <input type="id_produk" class="form-control" id="id_produk" placeholder="ID produk">
+                        <label for="id_produk">ID Produk : </label><br />
+                        <input type="text" class="form-control" id="id_produk" name="id_produk" placeholder="ID produk" maxlength="10" 
+                        value="<?php set_value('id_produk');?>" required>
+
+                        ID Produk terakhir adalah : 
+                        <?php
+                        $result = $this->produk_model->lastid();
+                        foreach ($result as $produk) {
+                            echo $produk->id_produk;
+                        }
+
+                        ?>
                     </div>
 
                 <div class="form-group">
                         <label for="nm_produk">Nama Produk : </label>
-                        <input type="nm_produk" class="form-control" id="nm_produk" placeholder="Nama produk">
+                        <input type="text" class="form-control" id="nm_produk" name="nm_produk" placeholder="Nama produk" maxlength="50"
+                        value="<?php echo set_value('nm_produk');?>" required>
                     </div>
 
                     <div class="form-group">
                         <label for="id_kategori">ID Kategori :</label>
-                        <input type="id_kategori" class="form-control" id="id_kategori" placeholder="model">
+                        <input type="text" class="form-control" id="id_kategori" name="id_kategori" placeholder="ID Kategori" maxlength="7"
+                        value="<?php echo set_value('id_kategori');?>" required>
                     </div>
 
                     <div class="form-group">
                         <label for="nm_kategori">Nama Kategori :</label>
-                        <input type="nm_kategori" class="form-control" id="nm_kategori" placeholder="Nama kategori">
+                        <input type="text" class="form-control" id="nm_kategori" name="nm_kategori" placeholder="Nama kategori" maxlength="30"
+                        value="<?php echo set_value('nm_kategori');?>" required>
                     </div>
 
                     <div class="form-group">
                         <label for="merk">Merk :</label>
-                        <input type="merk" class="form-control" id="merk" placeholder="Merk">
+                        <input type="text" class="form-control" id="merk" name="merk" placeholder="Merk" maxlength="20"
+                        value="<?php echo set_value('merk');?>" required>
                     </div>
 
                      <div class="form-group">
                         <label for="stok_produk">Stok Produk :</label>
-                        <input type="stok_produk" class="form-control" id="stok_produk" placeholder="Stok produk">
+                        <input type="text" class="form-control" id="stok_produk" name="stok_produk" placeholder="Stok produk" maxlength="3"
+                        value="<?php echo set_value('stok_produk');?>"required>
                     </div>
 
                      <div class="form-group">
                         <label for="hrg_produk">Harga Produk : </label>
-                        <input type="hrg_produk" class="form-control" id="hrg_produk" placeholder="Harga produk">
+                        <input type="text" class="form-control" id="hrg_produk" name="hrg_produk" placeholder="Harga produk" maxlength="7"
+                        value="<?php echo set_value('hrg_produk');?>" required>
                     </div>
 
 
                     <div class="form-group">
                         <label for="gambar">Gambar:</label>
-                    <input id="gambar-produk" name="gambar-produk" multiple="" type="file" /> 
+                    <input id="gambar_produk" name="gambar_produk" type="file" accept="image/jpeg, image/jpg, image/x-png"  required/> 
                     </div>
 
                      <div class="form-group">
                         <label for="deskripsi">Deskripsi :</label>
-                        <textarea class="form-control" id="deskripsi" placeholder="Deskripsi">
+                        <textarea class="form-control" id="deskripsi" name="deskripsi" placeholder="Deskripsi"  maxlength="265" rows="9"
+                        value="<?php echo set_value('deskripsi');?>" required>
                         </textarea>
                     </div>
 
-                    <button type="submit" class="btn btn-primary">Tambah produk</button>
-                </form>
+                    <button type="submit" class="btn-primary">Tambah produk</button>
+                    <!--<a href="<?php //echo site_url('Produk/tambah_action')?>"class="btn btn-primary">Tambah produk</a> -->
 
+                    <a href="<?php site_url('Produk/tambah_produk_refresh'); ?>" class="btn btn-danger">Batal dan Bersihkan</a>
+                    <?php echo form_close(); ?>
                 </div>
             </div>
 

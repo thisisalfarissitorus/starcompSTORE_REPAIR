@@ -29,12 +29,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="<?php echo site_url('Welcome/index')?>">STARCOMP ADMIN</a> 
+                <a class="navbar-brand" href="<?php echo site_url('Dashboard/')?>">STARCOMP ADMIN</a> 
             </div>
   <div style="color: white;
 padding: 15px 50px 5px 50px;
 float: right;
-font-size: 16px;"> Last access : <?php echo date("F j, Y, g:i a");?> &nbsp; <a href="#" class="btn btn-danger square-btn-adjust">Logout</a> </div>
+font-size: 16px;"> Last access : <?php echo date("F j, Y, g:i a");?> &nbsp; <a href="<?php echo site_url('Login/logout');?>" class="btn btn-danger square-btn-adjust">Logout</a> </div>
         </nav>   
            <!-- /. NAV TOP  -->
                 <nav class="navbar-default navbar-side" role="navigation">
@@ -72,7 +72,7 @@ font-size: 16px;"> Last access : <?php echo date("F j, Y, g:i a");?> &nbsp; <a h
                         <a href="#">Edit Data<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="<?php echo site_url('Produk/ganti_produk');?>">Edit Produk</a>
+                                <a href="#">Edit Produk</a>
                             </li>
                            <!-- <li>
                                 <a href="#">Second Level Link</a>
@@ -144,7 +144,6 @@ font-size: 16px;"> Last access : <?php echo date("F j, Y, g:i a");?> &nbsp; <a h
                                             <th>
                                                 Topik Kerusakan
                                             </th>
-                                            <th>Gambar Kerusakan</th>
                                             <th>ID User</th>
                                             <th>Username</th>
                                             <th>Biaya</th>
@@ -153,26 +152,29 @@ font-size: 16px;"> Last access : <?php echo date("F j, Y, g:i a");?> &nbsp; <a h
                                     </thead>
                                     <tbody>
                                         <tr class="gradeU">
-                                           
-                                           <!-- <td><button class="btn-danger">HAPUS<br></td>
-                                            <td><button class="btn-primary">EDIT</td>
-                                            -->
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
+                                          <?php 
+                                            $no = 1;
+                                            foreach ($perbaikan as $perbaikan) {
+                                                //penangan error
+                                                if (!$perbaikan) {
+                                                   $error = $this->load->view('errors/blank');
+                                                }
+                                            ?>
+                                            <td><?php echo $no;?></td>
+                                            <td><?php echo $perbaikan->id_perbaikan;?></td>
+                                            <td><?php echo $perbaikan->id_kerusakan;?></td>
+                                            <td><?php echo $perbaikan->tgl_konsul;?></td>
+                                            <td><?php echo $perbaikan->tgl_perbaikan;?></td>
+                                            <td><?php echo $perbaikan->topik_kerusakan;?></td>
+                                            <td><?php echo $perbaikan->id_user;?></td>
+                                            <td><?php echo $perbaikan->username;?></td>
+                                            <td><?php echo $perbaikan->biaya;?></td>
                                             <td>
-                                              <a href="#" class="btn btn-primary">Lihat detail</a>
+                                              <a href="<?php echo site_url('perbaikan/detail_perbaikan/'.$perbaikan->id_perbaikan)?>" class="btn btn-primary">Lihat detail</a>
                                             </td>
                                         </tr>
 
-                                        
+                                        <?php }?>
                                     </tbody>
                                 </table>
                             </div>

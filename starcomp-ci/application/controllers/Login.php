@@ -3,9 +3,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Login extends CI_Controller
 {
-	
+
 	public function __construct(){
+		$this->CI =& get_instance();
 		parent::__construct();
+
+		$this->load->model('Users_model');
 	}
 
 	public function index(){
@@ -32,9 +35,13 @@ class Login extends CI_Controller
 		} 
 		//end validasi
 
-		redirect(site_url('Dashboard', 'refresh'));
+		redirect(site_url('Dashboard/'), 'refresh');
 	
 	}
-}
 
-?> 
+	public function logout(){
+
+		redirect(site_url('Login'), 'refresh');
+
+	}
+}

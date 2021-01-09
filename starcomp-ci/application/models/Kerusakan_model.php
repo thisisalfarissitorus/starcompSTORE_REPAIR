@@ -25,4 +25,13 @@ class Kerusakan_model extends CI_Model {
 		return $query->row();
 	}
 
+	public function hps_kerusakan($id_kerusakan)
+	{
+		$this->db->from("kerusakan");
+		$this->db->join("gambar_kerusakan", "kerusakan.id_kerusakan
+		 = gambar_kerusakan.id_kerusakan");
+		$this->db->where("kerusakan.id_kerusakan", $id_kerusakan);
+		$this->db->delete("kerusakan");
+	}
+
 }

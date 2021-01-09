@@ -9,7 +9,7 @@ class Pemesanan extends CI_Controller {
 		$this->load->model('pemesanan_model');
 
 		//proteksi
-		//$this->simple_login->cek_login();
+		//$this->Login_utilities->cek_login();
 	}
 
 	public function index(){
@@ -20,11 +20,11 @@ class Pemesanan extends CI_Controller {
 
 	}
 
-	public function detail_pemesanan(){
+	public function detail_pemesanan($no_pesan){
 
-		//$result['pemesanan'] = $this->pemesanan_model->detail_pemesanan($no_pesan);
+		$result['pemesanan'] = $this->pemesanan_model->detail_pemesanan($no_pesan);
 
-		$this->load->view('main/viewonly/detail_pemesanan');
+		$this->load->view('main/viewonly/detail_pemesanan', $result);
 
 	}
 

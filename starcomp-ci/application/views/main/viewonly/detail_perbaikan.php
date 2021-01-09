@@ -36,7 +36,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   <div style="color: white;
 padding: 15px 50px 5px 50px;
 float: right;
-font-size: 16px;"> Last access : <?php echo date("F j, Y, g:i a");?> &nbsp; <a href="#" class="btn btn-danger square-btn-adjust">Logout</a> </div>
+font-size: 16px;"> Last access : <?php echo date("F j, Y, g:i a");?> &nbsp; <a href="<?php echo site_url('Login/logout');?>" class="btn btn-danger square-btn-adjust">Logout</a> </div>
         </nav>   
            <!-- /. NAV TOP  -->
                 <nav class="navbar-default navbar-side" role="navigation">
@@ -74,7 +74,7 @@ font-size: 16px;"> Last access : <?php echo date("F j, Y, g:i a");?> &nbsp; <a h
                         <a href="#">Edit Data<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="<?php echo site_url('Produk/ganti_produk');?>">Edit Produk</a>
+                                <a href="#">Edit Produk</a>
                             </li>
                            <!-- <li>
                                 <a href="#">Second Level Link</a>
@@ -133,37 +133,37 @@ font-size: 16px;"> Last access : <?php echo date("F j, Y, g:i a");?> &nbsp; <a h
                     <form>
                     <div class="form-group">
                         <label for="id_perbaikan">ID Perbaikan : </label>
-                        <input type="id_perbaikan" class="form-control" id="id_perbaikan" placeholder="ID Perbaikan" value="">
+                        <input type="id_perbaikan" class="form-control" id="id_perbaikan" placeholder="ID Perbaikan" value="<?php echo $perbaikan->id_perbaikan; ?>">
                     </div>
 
                 <div class="form-group">
                         <label for="id_kerusakan">ID Kerusakan : </label>
-                        <input type="id_kerusakan" class="form-control" id="id_kerusakan" placeholder="ID Kerusakan" value="">
+                        <input type="id_kerusakan" class="form-control" id="id_kerusakan" placeholder="ID Kerusakan" value="<?php echo $perbaikan->id_kerusakan; ?>">
                     </div>
 
                     <div class="form-group">
                         <label for="tgl_konsul">Tanggal konsultasi : </label>
-                        <input type="date" class="form-control" id="tgl_konsul" placeholder="Tanggal konsultasi" value="">
+                        <input type="date" class="form-control" id="tgl_konsul" placeholder="Tanggal konsultasi" value="<?php echo $perbaikan->tgl_konsul; ?>">
                     </div>
 
                     <div class="form-group">
                         <label for="tgl_perbaikan">Tanggal perbaikan :</label>
-                        <input type="tgl_perbaikan" class="form-control" id="tgl_perbaikan" placeholder="Tanggal perbaikan" value="">
+                        <input type="tgl_perbaikan" class="form-control" id="tgl_perbaikan" placeholder="Tanggal perbaikan" value="<?php echo $perbaikan->tgl_perbaikan; ?>">
                     </div>
 
                     <div class="form-group">
-                        <label for="topik_perbaikan">Topik perbaikan : </label>
-                        <input type="topik_perbaikan" class="form-control" id="topik_perbaikan" placeholder="Topik perbaikan" value="">
+                        <label for="topik_kerusakan">Topik kerusakan : </label>
+                        <input type="topik_kerusakan" class="form-control" id="topik_perbaikan" placeholder="Topik perbaikan" value="<?php echo $perbaikan->topik_kerusakan; ?>">
                     </div>
 
                      <div class="form-group">
                         <label for="id_user">ID User :</label>
-                        <input type="id_user" class="form-control" id="id_user" placeholder="ID User" value="">
+                        <input type="id_user" class="form-control" id="id_user" placeholder="ID User" value="<?php echo $perbaikan->id_user; ?>">
                     </div>
 
                      <div class="form-group">
                         <label for="username">Username : </label>
-                        <input type="username" class="form-control" id="username" placeholder="Username" value="">
+                        <input type="username" class="form-control" id="username" placeholder="Username" value="<?php echo $perbaikan->username; ?>">
                     </div>
 
 
@@ -174,13 +174,14 @@ font-size: 16px;"> Last access : <?php echo date("F j, Y, g:i a");?> &nbsp; <a h
 
                      <div class="form-group">
                         <label for="deskripsi">Deskripsi :</label>
-                        <textarea class="form-control" id="deskripsi_perbaikan" placeholder="Deskripsi perbaikan" value="">
+                        <textarea class="form-control" id="deskripsi_perbaikan" placeholder="Deskripsi perbaikan">
+                            <?php echo $perbaikan->deskripsi_perbaikan; ?>
                         </textarea>
                     </div>
 
                     <div class="form-group">
                         <label for="biaya">Biaya perbaikan : </label>
-                        <input type="biaya" class="form-control" id="biaya" placeholder="Biaya perbaikan" value="">
+                        <input type="biaya" class="form-control" id="biaya" placeholder="Biaya perbaikan" value="<?php echo "Rp ".$perbaikan->biaya; ?>">
                     </div>
 
                     <a href="<?php echo site_url('Perbaikan')?>" class="btn btn-primary">Kembali ke halaman Perbaikan</a>

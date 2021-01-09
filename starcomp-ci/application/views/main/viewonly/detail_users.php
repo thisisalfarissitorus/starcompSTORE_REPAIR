@@ -36,7 +36,7 @@ echo form_open(site_url('Users/detail/'.$user->id_user));
   <div style="color: white;
 padding: 15px 50px 5px 50px;
 float: right;
-font-size: 16px;"> Last access : <?php echo date("F j, Y, g:i a");?> &nbsp; <a href="#" class="btn btn-danger square-btn-adjust">Logout</a> </div>
+font-size: 16px;"> Last access : <?php echo date("F j, Y, g:i a");?> &nbsp; <a href="<?php echo site_url('Login/logout');?>" class="btn btn-danger square-btn-adjust">Logout</a> </div>
         </nav>   
            <!-- /. NAV TOP  -->
                 <nav class="navbar-default navbar-side" role="navigation">
@@ -55,7 +55,7 @@ font-size: 16px;"> Last access : <?php echo date("F j, Y, g:i a");?> &nbsp; <a h
                     <li>
                         <a  href="<?php echo site_url('Users')?>">Pelanggan </a>
                     </li>
-                           <li  >
+                           <li>
                         <a   href="<?php echo site_url('Pembayaran')?>">Pembayaran</a>
                     </li>   
                       <li  >
@@ -73,7 +73,7 @@ font-size: 16px;"> Last access : <?php echo date("F j, Y, g:i a");?> &nbsp; <a h
                         <a href="#">Edit Data<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="<?php echo site_url('Produk/ganti_produk');?>">Edit Produk</a>
+                                <a href="#">Edit Produk</a>
                             </li>
                            <!-- <li>
                                 <a href="#">Second Level Link</a>
@@ -119,7 +119,7 @@ font-size: 16px;"> Last access : <?php echo date("F j, Y, g:i a");?> &nbsp; <a h
             <div id="page-inner">
                 <div class="row">
                     <div class="col-md-12">
-                     <h2>Detail pelanggan</h2>   
+                     <h2>Detail pelanggan <?php echo $user->id_user; ?></h2>   
                         <h5>Memunculkan detail pelanggan aplikasi STARCOMP Store & Repair</h5>
                        
                     </div>

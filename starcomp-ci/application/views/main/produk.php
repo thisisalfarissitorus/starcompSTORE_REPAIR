@@ -29,12 +29,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="<?php echo site_url('Welcome/index')?>">STARCOMP ADMIN</a> 
+                <a class="navbar-brand" href="<?php echo site_url('Dashboard/')?>">STARCOMP ADMIN</a> 
             </div>
   <div style="color: white;
 padding: 15px 50px 5px 50px;
 float: right;
-font-size: 16px;"> Last access : <?php echo date("F j, Y, g:i a");?> &nbsp; <a href="#" class="btn btn-danger square-btn-adjust">Logout</a> </div>
+font-size: 16px;"> Last access : <?php echo date("F j, Y, g:i a");?> &nbsp; <a href="<?php echo site_url('Login/logout');?>" class="btn btn-danger square-btn-adjust">Logout</a> </div>
         </nav>   
            <!-- /. NAV TOP  -->
                 <nav class="navbar-default navbar-side" role="navigation">
@@ -45,7 +45,7 @@ font-size: 16px;"> Last access : <?php echo date("F j, Y, g:i a");?> &nbsp; <a h
                     </li>
                 
                     
-                   <li>
+                    <li>
                         <a href="<?php echo site_url('Dashboard')?>"> Dashboard</a>
                     </li>
                      <li>
@@ -54,13 +54,13 @@ font-size: 16px;"> Last access : <?php echo date("F j, Y, g:i a");?> &nbsp; <a h
                     <li>
                         <a  href="<?php echo site_url('Users')?>">Pelanggan </a>
                     </li>
-                           <li  >
+                    <li>
                         <a   href="<?php echo site_url('Pembayaran')?>">Pembayaran</a>
                     </li>   
-                      <li  >
+                    <li>
                         <a  href="<?php echo site_url('Pemesanan')?>">Pemesanan</a>
                     </li>
-                    <li  >
+                    <li>
                         <a class="active-menu" href="<?php echo site_url('Produk')?>"> Produk </a>
                     </li>
                     <li>
@@ -132,7 +132,7 @@ font-size: 16px;"> Last access : <?php echo date("F j, Y, g:i a");?> &nbsp; <a h
                     <!-- Advanced Tables -->
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                             <b>Daftar Pesanan Produk Pelanggan Star Computer</b>
+                             <b>Daftar Produk Pelanggan Star Computer</b>
                         </div>
                         <div class="panel-body">
                             <div class="table-responsive">
@@ -142,13 +142,11 @@ font-size: 16px;"> Last access : <?php echo date("F j, Y, g:i a");?> &nbsp; <a h
                                             <th>No.</th>
                                             <th>ID Produk</th>
                                             <th>Nama Produk</th>
-                                            <th>ID Kategori</th>
-                                            <th>Nama Kategori</th>
                                             <th>Merk</th>
                                             <th>Stok Produk</th>
                                             <th>Harga Produk</th>
-                                            <th>Gambar Produk</th>
-                                            <th>Deskripsi</th>
+                                            <!--<th>Gambar Produk</th>-->
+                                            <th>Status</th>
                                             <th>Aksi</th>
                                         </tr>
                                     </thead>
@@ -165,21 +163,28 @@ font-size: 16px;"> Last access : <?php echo date("F j, Y, g:i a");?> &nbsp; <a h
                                             <td><?php echo $no ;?></td>
                                             <td><?php echo $produk->id_produk?></td>
                                             <td><?php echo $produk->nm_produk; ?></td>
-                                            <td><?php echo $produk->id_kategori;?></td>
-                                            <td><?php echo $produk->nm_kategori;?></td>
                                             <td><?php echo $produk->merk;?></td>
                                             <td><?php echo $produk->stok_produk;?></td>
-                                            <td><?php echo $produk->hrg_produk;?></td>
-                                            <td>
-                                                <img src="<?php echo base_url('assets/img/produk/'.$produk->namafileproduk.'');?>" height="100px" width="100px" />
+                                            <td><?php echo "Rp.".$produk->hrg_produk;?></td>
+                                            <!---<td>
+                                                <img src="<?php //echo base_url('assets/img/produk/'.$produk->namafileproduk.'');?>" height="100px" width="100px" />
                                             </td>
-                                            <td><?php echo $produk->deskripsi;?></td>
+                                            --->
+                                            <td><b>
+                                                <?php
+                                                    if ($produk->stok_produk == 0) {
+                                                        echo "HABIS";
+                                                    } else {
+                                                        echo "MASIH TERSEDIA";
+                                                    }
+                                                ?>
+                                            </b></td>
                                             <td>
 
                                             <p align="right">
                                                 <a class="btn btn-primary" href="<?php echo site_url('Produk/detail_produk/'. $produk->id_produk) ;?>">Lihat detail</a>
                                                 <a href="<?php echo site_url('produk/ganti_produk/'.$produk->id_produk)?>" class="btn btn-warning">Edit produk</a> 
-                                                <a class=" btn btn-danger" href="#" onclick="return confirm('Anda Yakin Ingin Menghapus Data Ini ?')">Hapus</a>
+                                                <a class=" btn btn-danger" href="<?php echo site_url('Produk/hps_produk/'.$produk->id_produk)?>" onclick="return confirm('Anda Yakin Ingin Menghapus Data Ini ?')">Hapus</a>
                                             </p>
 
                                             </td>

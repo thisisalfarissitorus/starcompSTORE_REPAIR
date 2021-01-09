@@ -29,12 +29,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="<?php echo site_url('Welcome/index')?>">STARCOMP ADMIN</a> 
+                <a class="navbar-brand" href="<?php echo site_url('Dashboard/')?>">STARCOMP ADMIN</a> 
             </div>
  <div style="color: white;
 padding: 15px 50px 5px 50px;
 float: right;
-font-size: 16px;"> Last access : <?php echo date("F j, Y, g:i a");?> &nbsp; <a href="#" class="btn btn-danger square-btn-adjust">Logout</a> </div>
+font-size: 16px;"> Last access : <?php echo date("F j, Y, g:i a");?> &nbsp; <a href="<?php echo site_url('Login/logout');?>" class="btn btn-danger square-btn-adjust">Logout</a> </div>
         </nav>   
            <!-- /. NAV TOP  -->
                 <nav class="navbar-default navbar-side" role="navigation">
@@ -71,7 +71,7 @@ font-size: 16px;"> Last access : <?php echo date("F j, Y, g:i a");?> &nbsp; <a h
                         <a href="#">Edit Data<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="<?php echo site_url('Produk/ganti_produk');?>">Edit Produk</a>
+                                <a href="#">Edit Produk</a>
                             </li>
                            <!-- <li>
                                 <a href="#">Second Level Link</a>
@@ -142,12 +142,9 @@ font-size: 16px;"> Last access : <?php echo date("F j, Y, g:i a");?> &nbsp; <a h
                                             <th>Nama depan</th>
                                             <th>Nama belakang</th>
                                             <th>Kota lahir</th>
-                                            <th>Tgl Lahir</th>
                                             <th>Jenis Kelamin</th>
-                                            <th>Nomor telepon</th>
                                             <th>E-mail</th>
                                             <th>Username</th>
-                                            <th>Password</th>
                                             <th>Hak akses</th>
                                             <th>Aksi</th>
                                         </tr>
@@ -163,15 +160,21 @@ font-size: 16px;"> Last access : <?php echo date("F j, Y, g:i a");?> &nbsp; <a h
                                            <td><?php echo $user->nama_depan; ?></td>
                                            <td><?php echo $user->nama_belakang; ?></td>
                                            <td><?php echo $user->kota_lahir; ?></td>
-                                           <td><?php echo $user->tgl_lahir; ?></td>
                                            <td><?php echo $user->jns_kelamin; ?></td>
-                                           <td><?php echo $user->no_telp; ?></td>
                                            <td><?php echo $user->email; ?></td>
                                            <td><?php echo $user->username; ?></td>
-                                           <td><?php echo $user->password; ?></td>
                                            <td><?php echo $user->hak_akses; ?><td>
-                                            <a class="btn btn-primary" href="<?php echo site_url('Users/detail/'. $user->id_user) ;?>">Lihat detail</a> 
+
+                                      <?php 
+                                      //pengecualian opsi hapus pada user admin
+                                        if ($user->id_user == "ADM01") {
+                                      ?>
+                                            <a class="btn btn-primary" href="<?php echo site_url('Users/detail/'.$user->id_user) ;?>">Lihat detail</a> 
+                                      <?php } else {?>
+                                            <a class="btn btn-primary" href="<?php echo site_url('Users/detail/'.$user->id_user) ;?>">Lihat detail</a> 
                                             <a class=" btn btn-danger" href="#">Hapus</a>
+                                      <?php }?>
+
                                         </td>
                                         </tr>
                                         <?php $no++; }?>

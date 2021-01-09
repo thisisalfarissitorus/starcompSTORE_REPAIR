@@ -18,11 +18,10 @@ class Login_utilities
 		//jika ada data user maka create session login
 		if($check){
 			$id_user	= $check->id_user;
-			$nama		= $check->nama;
-			$akses_level= $check->akses_level;
+			$username	= $check->username;
+			$hak_akses = $check->hak_akses;
 			// create session
 			$this->CI->session->set_userdata('id_user', $id_user);
-			$this->CI->session->set_userdata('nama', $nama);
 			$this->CI->session->set_userdata('username', $username);
 			$this->CI->session->set_userdata('hak_akses', $hak_akses);
 			//redirect ke halaman admin
@@ -48,9 +47,8 @@ class Login_utilities
 	{
 		//membuang smua session yang telah diset pada saat login
 		$this->CI->session->unset_userdata('id_user');
-		$this->CI->session->unset_userdata('nama');
 		$this->CI->session->unset_userdata('username');
-		$this->CI->session->unset_userdata('akses_level');
+		$this->CI->session->unset_userdata('hak_akses');
 		//setelah session dibuang, maka redirect ke halamn login
 		$this->CI->session->set_flashdata('sukses', 'Anda Telah Logout');
 		redirect(site_url('login'),'refresh');

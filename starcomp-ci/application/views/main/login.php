@@ -35,13 +35,12 @@ echo form_open(site_url('login'));
   <div class="row">
     <form>
         <div class="form-group">
-              <input type="username" class="form-control" id="username" placeholder="username" required autofocus maxlength="15">
+              <input type="username" class="form-control" id="username" placeholder="username" autofocus maxlength="15" required>
         </div>
 
         <div class="form-group">
 
-              <input type="password" class="form-control" id="password" placeholder="Password" required
-              maxlength="20">
+              <input type="password" class="form-control" id="password" placeholder="Password" maxlength="20" required>
             <p style="color: white; text-transform: lowercase;">
               <input type="checkbox" onclick="showPassword()">Tampilkan Password
             </p>

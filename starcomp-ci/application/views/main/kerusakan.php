@@ -29,12 +29,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-               <a class="navbar-brand" href="<?php echo site_url('Welcome/index')?>">STARCOMP ADMIN</a> 
+               <a class="navbar-brand" href="<?php echo site_url('Dashboard/')?>">STARCOMP ADMIN</a> 
             </div>
   <div style="color: white;
 padding: 15px 50px 5px 50px;
 float: right;
-font-size: 16px;"> Last access : <?php echo date("F j, Y, g:i a");?> &nbsp; <a href="#" class="btn btn-danger square-btn-adjust">Logout</a> </div>
+font-size: 16px;"> Last access : <?php echo date("F j, Y, g:i a");?> &nbsp; <a href="<?php echo site_url('Login/logout');?>" class="btn btn-danger square-btn-adjust">Logout</a> </div>
         </nav>   
            <!-- /. NAV TOP  -->
                 <nav class="navbar-default navbar-side" role="navigation">
@@ -101,7 +101,7 @@ font-size: 16px;"> Last access : <?php echo date("F j, Y, g:i a");?> &nbsp; <a h
                         <a href="#">Tambah Data<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="<?php echo site_url('Produk/tambah_produk');?>">Tambah Produk</a>
+                                <a href="#">Tambah Produk</a>
                             </li>
                         </ul>
                   <li  >
@@ -167,8 +167,8 @@ font-size: 16px;"> Last access : <?php echo date("F j, Y, g:i a");?> &nbsp; <a h
                                             <td><?php echo $kerusakan->username; ?></td>
                                             <td><?php echo $kerusakan->tgl_konsul?></td>
                                             <td>
-                                                <a class="btn btn-primary" href="<?php echo site_url('Kerusakan/detail_kerusakan/'. $kerusakan->id_kerusakan) ;?>">Lihat detail</a> 
-                                            <a class=" btn btn-danger" href="#">Hapus</a>
+                                            <a class="btn btn-primary" href="<?php echo site_url('Kerusakan/detail_kerusakan/'. $kerusakan->id_kerusakan) ;?>">Lihat detail</a> 
+                                            <a class=" btn btn-danger" href="<?php echo site_url('Kerusakan/hps_kerusakan/'.$kerusakan->id_kerusakan)?>" onclick="return confirm('Anda Yakin Ingin Menghapus Data Ini ?')">Hapus</a>
                                             </td>
                                            <!-- <td><button class="btn-danger">HAPUS<br></td>
                                             <td><button class="btn-primary">EDIT</td>
