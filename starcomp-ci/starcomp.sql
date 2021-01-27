@@ -1,13 +1,15 @@
 -- phpMyAdmin SQL Dump
--- version 4.5.4.1deb2ubuntu2.1
--- http://www.phpmyadmin.net
+-- version 4.9.7deb1
+-- https://www.phpmyadmin.net/
 --
--- Host: localhost
--- Generation Time: Jan 09, 2021 at 11:04 PM
--- Server version: 10.0.38-MariaDB-0ubuntu0.16.04.1
--- PHP Version: 7.0.33-0ubuntu0.16.04.16
+-- Host: localhost:3306
+-- Generation Time: Jan 28, 2021 at 01:19 PM
+-- Server version: 10.3.27-MariaDB-0+deb10u1
+-- PHP Version: 7.3.19-1~deb10u1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -19,10 +21,9 @@ SET time_zone = "+00:00";
 --
 -- Database: `starcomp`
 --
+CREATE DATABASE starcomp;
 
-CREATE DATABASE IF NOT EXISTS `starcomp`;
-
-USE `starcomp`;
+USE starcomp;
 
 -- --------------------------------------------------------
 
@@ -117,7 +118,9 @@ INSERT INTO `gambar_produk` (`id_gmbr_prdk`, `id_produk`, `namafileproduk`) VALU
 (5, 'PRO0005', 'DVD_R_GTPRO.jpeg'),
 (6, 'PRO0006', 'JBL_BLUETOOTHSPEAKER.jpeg'),
 (7, 'PRO0007', 'SIDU_FOLIOGARIS.jpeg'),
-(8, 'PRO0008', 'VOTRE_KEYBOARD.jpeg');
+(8, 'PRO0008', 'VOTRE_KEYBOARD.jpeg'),
+(9, 'PRO0009', 'STEADTLER_PENGHAPUS.jpg'),
+(10, 'PRO0010', 'KENKO_RAUT.jpg');
 
 -- --------------------------------------------------------
 
@@ -181,7 +184,7 @@ CREATE TABLE `kerusakan` (
 --
 
 INSERT INTO `kerusakan` (`id_kerusakan`, `topik_kerusakan`, `dskpsi_kerusakan`, `id_user`, `username`, `tgl_konsul`) VALUES
-('RSK001', 'LCD RUSAK', 'Gan, kerusakan laptop aku,\r\n1. Laptop ASUS 121P LCD nya rusak. Tolong perbaiki laptop aku.\r\n2. Instal ulang ke Windows 8.1 64 bit. Datanya hapus semua.', 'ADM01', 'admin', '2020-11-28');
+('RSK001', 'LCD RUSAK', 'Gan, kerusakan laptop aku,\r\n1. Laptop ASUS 121P LCD nya rusak. Tolong perbaiki laptop aku.\r\n2. Instal ulang ke Windows 8.1 64 bit. Datanya hapus semua.', 'ADM01', 'admin', '2021-01-20');
 
 -- --------------------------------------------------------
 
@@ -278,13 +281,15 @@ CREATE TABLE `produk` (
 --
 
 INSERT INTO `produk` (`id_produk`, `nm_produk`, `id_kategori`, `nm_kategori`, `merk`, `stok_produk`, `hrg_produk`, `deskripsi`) VALUES
-('PRO0001', 'DP 40 DP 41 Black & Color Refill Ink', 'PC002', 'Peralatan Komputer (Refill)', 'DataPrint', 30, 40000, 'Tinta DP 40 DP 41 Black & Color Refill Ink adalah tinta refill untuk Printer Canon anda'),
-('PRO0002', 'Transmemory 16GB', 'PC003', 'Alat Penyimpanan Komputer', 'Toshiba', 30, 90000, 'Toshiba Transmemory 16GB adalah flashdisk 3.0'),
+('PRO0001', 'DP 40 DP 41 Black & Color Refill Ink', 'PC002', 'Peralatan Komputer (Refill)', 'Data Print', 10, 30000, 'Data Print Tinta DP 40 DP 41 Black & Color Refill Ink adalah tinta refill yang digunakan untuk mengisi ulang tinta printer Anda. Tinta ini hanya dikhususkan untuk Printer Canon saja.'),
+('PRO0002', 'Transmemory 16GB', 'PC003', 'Alat Penyimpanan Komputer', 'Toshiba', 20, 90000, 'Toshiba Transmemory 16GB adalah flashdisk 3.0 yang diproduksi oleh Toshiba yang berkapasitas 16 GB'),
 ('PRO0003', 'EPSON REFILL INK CMYK 664', 'PC002', 'Peralatan Komputer (Refill)', 'EPSON', 40, 50000, 'Epson INK CMYK adalah tinta refill untuk Epson Printer'),
-('PRO0004', 'KINGSTON 32 GB', 'PC003', 'Alat Penyimpanan Komputer', 'KINGSTON', 20, 150000, ''),
-('PRO0005', 'DVD-R GT PRO', 'PC003', 'Alat Penyimpanan Komputer', 'GT PRO', 50, 5000, ''),
+('PRO0004', 'KINGSTON 32 GB', 'PC003', 'Alat Penyimpanan Komputer', 'KINGSTON', 20, 150000, 'Kingston 32 GB adalah flashdisk yang diproduksi oleh Kingston yang memiliki kapasitas 32 GB dengan teknologi USB 3.0'),
+('PRO0005', 'DVD-R GT PRO', 'PC003', 'Alat Penyimpanan Komputer', 'GT PRO', 50, 5000, 'GT Pro memproduksi DVD dengan teknologi Read-only (sekali burning) denga kapasitas 4.07 GB.'),
 ('PRO0006', 'JBL Bluetooth Speaker', 'ET001', 'Hiburan', 'JBL', 10, 70000, 'JBL Bluetooth Speaker adalah produk speaker yang konektifitasnya melewati Bluetooth. Sangat jernih'),
-('PRO0008', 'VOTRE QWERTY KEYBOARD', 'PC004', 'Peralatan Komputer (Input)', 'VOTRE', 6, 45000, 'VOTRE QWERTY KEYBOARD adalah produk keyboard yang mempunyai tata letak abjad QWERTY yang nyaman dan praktis digunakan\r\nuntuk pengetikan dokumen sehari-hari.');
+('PRO0008', 'VOTRE QWERTY KEYBOARD', 'PC004', 'Peralatan Komputer (Input)', 'VOTRE', 6, 45000, 'VOTRE QWERTY KEYBOARD adalah produk keyboard yang mempunyai tata letak abjad QWERTY yang nyaman dan praktis digunakan\r\nuntuk pengetikan dokumen sehari-hari.'),
+('PRO0009', 'STEADTLER RASOPLAST PENGHAPUS', 'KT001', 'Alat Tulis Kantor', 'STEADTLER', 10, 50000, 'Penghapus Steadtler adalah produk penghapus dari Steadtler untuk pensil 2B Steadtler.'),
+('PRO0010', 'KENKO RAUTAN PENSIL', 'KT001', 'Alat Tulis Kantor', 'Kenko', 15, 15000, 'Kenko Rautan Pensil adalah rautan pensil yang diproduksi oleh Kenko. Produk tersebut selalu dipakai oleh pengguna pensil, teruta anak keci yang ingin meraut pensil mereka.');
 
 -- --------------------------------------------------------
 
@@ -399,21 +404,26 @@ ALTER TABLE `users`
 --
 ALTER TABLE `gambar_bayar`
   MODIFY `id_gmbr_bayar` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
 --
 -- AUTO_INCREMENT for table `gambar_kerusakan`
 --
 ALTER TABLE `gambar_kerusakan`
   MODIFY `id_gmbr_rusak` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
 --
 -- AUTO_INCREMENT for table `gambar_produk`
 --
 ALTER TABLE `gambar_produk`
-  MODIFY `id_gmbr_prdk` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id_gmbr_prdk` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
 --
 -- AUTO_INCREMENT for table `gambar_user`
 --
 ALTER TABLE `gambar_user`
   MODIFY `id_gmbr_user` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+COMMIT;
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

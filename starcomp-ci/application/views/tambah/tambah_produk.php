@@ -196,6 +196,9 @@ font-size: 16px;"> Last access : <?php echo date("F j, Y, g:i a");?> &nbsp; <a h
                     </div>
 
                     <button type="submit" class="btn-primary">Tambah produk</button>
+                    <!--<a href="<?php //echo site_url('Produk/tambah_action')?>"class="btn btn-primary">Tambah produk</a> -->
+
+                    <a href="<?php site_url('Produk/tambah_produk_refresh'); ?>" class="btn btn-danger">Batal dan Bersihkan</a>
                     <?php echo form_close(); ?>
                 </div>
             </div>

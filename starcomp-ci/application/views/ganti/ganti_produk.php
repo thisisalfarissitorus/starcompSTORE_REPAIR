@@ -183,6 +183,7 @@ font-size: 16px;"> Last access : <?php echo date("F j, Y, g:i a");?> &nbsp; <a h
                     </div>
 
                    <button type="submit" class="btn-primary">Simpan perubahan</button>
+                    <a class="btn btn-warning" href="#">Hapus Semua</a>
                 <?php echo form_close(); ?>
                 </div>
             </div>
